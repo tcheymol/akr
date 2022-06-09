@@ -1,0 +1,15 @@
+<section>
+    <h2 class="text-primary mt-0 text-center py-4">{{ spot.name|upper }}</h2>
+    <div class="container-fluid">
+        <p class="text-center"><b>{{ spot.subtitle|raw }}</b></p>
+        <p><b>{{ 'position'|trans }}</b> : {{ spot.position|raw }}</p>
+        <p><b>{{ 'access'|trans }}</b> : {{ spot.access|raw }}</p>
+        <p><b>{{ 'description'|trans }}</b> : {{ spot.description|raw }}</p>
+        <p><b>{{ 'orientation'|trans }}</b> : {{ spot.orientation|raw }}</p>
+        <p><b>{{ 'water'|trans }}</b> : {{ spot.water|raw }}</p>
+        <p><b>{{ 'dangers'|trans }}</b> : {{ spot.dangers|raw }}</p>
+        <p><b>{{ 'more'|trans }}</b> : {{ spot.more|raw }}</p>
+        <p><b>{{ 'security'|trans }}</b> : {{ spot.security|raw }}</p>
+    </div>
+</section>
+
