@@ -1,4 +1,26 @@
+copyright: Copyright © 2022 - Attitude Kite
 discover_association: Découvrir L'association
+general_rule_frame: Cadre réglementaire général
+general_rule_frame_1: Sur le territoire national, la circulation maritime est de la compétence du délégué du gouvernement à l’action de l’état en mer. L’article 240-2.11 (arrêté du 6 mai 2019) paru au journal officiel du 12 mai 2019 modifiant l’arrêté du 23 novembre 1987 relatif à la sécurité des navires (“Division 240“) précise le cadre réglementaire du kitesurf sur le domaine public maritime.<br/>La Division 240 est le texte officiel en termes de définitions, limite de navigation et d’équipements de sécurité minimaux.<br/>Le décret 2007-236 du 21 Février 2007 du ministère de l’écologie et du développement durable ordonne la création de la Réserve Marine Nationale de la Réunion (la RMNR). Sauf dans les zones autorisées par le préfet, la navigation y est interdite.<br/>Nous vous recommandons de consulter le dépliant Kite et sports nautiques de la RMNR.
+general_rule_frame_2: "A consulter également, les pages de la DEAL:<br/><ul class='ms-5 ps-5'><li>Règlementation de la réserve</li><li>Périmètre de la réserve</li></ul><br/><span><u class='ms-3'>Note:</u> Le spot de Trou d’eau est intégralement situé dans la réserve et fait l’objet d’une autorisation préfectorale de navigation spécifique (voir la page réglementation du spot de Trou d’Eau).</span>"
+general_rule_frame_3: "Localement, le régulateur est la Direction de la Mer Sud Océan Indien (DMSOI) qui est un service déconcentré du ministère de la transition écologique et du ministère de la mer en charge du développement durable des activités maritimes.<br/>Les textes de références sont l’arrêté préfectoral 1744 du 15 Juillet 2008 avec son amendement, l’arrêté préfectoral 2205 du 12 Juin 2019.<br/>On y retrouve les limites de navigations en kitesurf et notamment les autorisations spécifiques à la RMNR pour le spot de Trou d’Eau."
+general_rule_frame_4: "Enfin, les maires des communes du littoral émettent des arrêtés municipaux dans l’intérêt de la sécurité des populations dans la bande des 300m du rivage. Il existe 3 arrêtés municipaux portés à notre connaissance en vigueur actuellement relatif à la baignade et aux sports nautiques:<ul class='ms-5 ps-5'><li>Mairie de Saint Denis: Arrêté municipal temporaire 129-2021 en vigueur jusqu’au 31/12/2022</li><li>Mairie de Saint Paul: Arrêté municipal 2009-2622</li><li>Mairie de Saint Pierre: Arrêté municipal 177PG-2014</li></ul>"
+general_rule_frame_ps_1: "Maintenant que le décors est planté nous vous proposons dans la suite des extraits pertinents des textes ci-dessus."
+general_rule_frame_ps_2: "Attention: Seul le texte original prévaut fait office de loi !"
+general_rules: Règlementation générale
+general_spots_rules: Recommandations générales à l’ensemble des spots de l’île
+general_spots_rules_1: Apporter une attention particulière aux conditions météos avant vos sessions (Annuaire des marées, Orientation du vent, Force, Houle).
+general_spots_rules_2: Se renseigner auprès des locaux avant tout “baptême” sur un spot (Spécificité du spot, Dangers, Zone de navigation autorisée, Règlementations…).
+general_spots_rules_3: Respecter l’ensemble des usagers présents sur les spots (Baigneurs, Véliplanchistes, Canoë-Kayaks, Paddles, Surfeurs, etc).
+general_spots_rules_4: Connaissance des règles de navigation et priorités indispensables !
+general_spots_rules_5: Prendre connaissance du risque REQUINS notamment sur les spots avec accès ou navigation pleine mer. Plusieurs Windsurfers et surfeurs sont décédés des suites d’attaques de requins Tigres et Bouledogues à la Réunion.
+general_spots_rules_6: Des requins ont été aperçu sur l’ensemble des spots de pleine mer.
+general_spots_rules_7: <b>Ne jamais naviguer seul</b>
+home: Accueil
+important_information: Informations importantes
+important_information_1: Nous présentons au mieux de nos connaissances les textes officiels en vigueur sur l’ensemble du département.
+important_information_2: Cette liste n’a aucune valeur légale et les mises à jour ou évolutions des réglementations pourraient intervenir avant d’être mise à jour sur nos pages d’informations.
+important_information_3: "<u>Note :</u> chaque texte est téléchargeable au format pdf en cliquant sur le lien hypertexte lorsqu’il est cité."
 main_subtitle_1: Attitude Kite Réunion est une association, régie par la loi de 1901, à but non lucratif, regroupant les pratiquants de kitesurf de la Réunion.
 main_subtitle_2: Elle a pour objectif de développer et promouvoir la pratique du kite à la Réunion dans une dynamique d’entraide et de partage.
 main_subtitle_3: Cette association renommée en 2021, est née du travail et de la fusion des associations Attitude Kite Saint Pierre et Saline Kite Club, qui depuis 2008 ont grandement contribué à faire vivre et rayonner l’esprit kitesurf sur notre belle île.
@@ -7,22 +29,14 @@ members: Membres
 see_all_spots: Voir tous les spots
 spot_1: Le spot de Trou d'eau
 spot_2: Le spot de la Gendarmerie
+spots: Les spots
+spots_intro_1: L’ile de la Réunion vous réserve peu de spots, mais intenses. Sur cette page, nous vous proposons une présentation de ces différents spots de Kitesurf. (Cette liste n’a aucune valeur légale)
+spots_intro_2: La navigation sur l’ensemble des spots présentés ci après reste de votre entière responsabilité. Etre licencié vous assure une protection individuelle ainsi qu’en cas d’accident, pensez-y ! (Pour se licencier, c’est ICI)
+spots_intro_3: Merci de respecter la réglementation maritime, les lieux et ses différents usagers afin de permettre à tous de rider sereinement et de profiter au mieux des conditions de vent qu’offre notre île tout au long de l’année.
+spots_intro_4: "A savoir : l’ensemble des spots présentés requiert un niveau de pratique autonome, confirmé à expert. C’est pourquoi il n’existe pas d’école de kitesurf à la Réunion. Nos îles sœurs (Maurice, Rodrigues, Madagascar) seront quand à elle vous offrir des zones d’apprentissages exceptionnelles !"
+spots_intro_5: Dans tous les cas, n’hésitez pas à vous rapprocher des kitesurfeurs locaux, ils se feront un plaisir de vous aider et vous conseiller !
 where_to_find_members: Où trouver des membres de l'association ?
 where_to_find_members_spot_1: Trou d’eau est le spot pour les pratiquants intermédiaires à experts. C’est un spot de flat plutôt orienté freeride, freestyle.
 where_to_find_members_spot_2: Le spot de La Gendarmerie est beaucoup plus sélectif et s’adresse avant tout à des pratiquants confirmés à experts. Le lagon est petit avec peu d’eau, du corail et des oursins… Mais devant vous se dresse un magnifique spot de vagues ou il n’y a aucun surfeur ou windsurfeur… Juste des kiteurs !
 where_to_find_members_title_1: "Les membres d’Attitude Kite Réunion sont majoritairement présents sur les deux spots principaux de l’île :"
 where_to_find_members_title_2: Le spot de Trou d’eau à La Saline les Bains ainsi que sur le spot de La Gendarmerie à Saint-Pierre.
-copyright: Copyright © 2022 - Attitude Kite
-home: Accueil
-general_rules: Règlementation générale
-important_information: Informations importantes
-important_information_1: Nous présentons au mieux de nos connaissances les textes officiels en vigueur sur l’ensemble du département.
-important_information_2: Cette liste n’a aucune valeur légale et les mises à jour ou évolutions des réglementations pourraient intervenir avant d’être mise à jour sur nos pages d’informations.
-important_information_3: "<u>Note :</u> chaque texte est téléchargeable au format pdf en cliquant sur le lien hypertexte lorsqu’il est cité."
-general_rule_frame: Cadre réglementaire général
-general_rule_frame_1: Sur le territoire national, la circulation maritime est de la compétence du délégué du gouvernement à l’action de l’état en mer. L’article 240-2.11 (arrêté du 6 mai 2019) paru au journal officiel du 12 mai 2019 modifiant l’arrêté du 23 novembre 1987 relatif à la sécurité des navires (“Division 240“) précise le cadre réglementaire du kitesurf sur le domaine public maritime.<br/>La Division 240 est le texte officiel en termes de définitions, limite de navigation et d’équipements de sécurité minimaux.<br/>Le décret 2007-236 du 21 Février 2007 du ministère de l’écologie et du développement durable ordonne la création de la Réserve Marine Nationale de la Réunion (la RMNR). Sauf dans les zones autorisées par le préfet, la navigation y est interdite.<br/>Nous vous recommandons de consulter le dépliant Kite et sports nautiques de la RMNR.
-general_rule_frame_2: "A consulter également, les pages de la DEAL:<br/><ul class='ms-5 ps-5'><li>Règlementation de la réserve</li><li>Périmètre de la réserve</li></ul><br/><span><u class='ms-3'>Note:</u> Le spot de Trou d’eau est intégralement situé dans la réserve et fait l’objet d’une autorisation préfectorale de navigation spécifique (voir la page réglementation du spot de Trou d’Eau).</span>"
-general_rule_frame_3: "Localement, le régulateur est la Direction de la Mer Sud Océan Indien (DMSOI) qui est un service déconcentré du ministère de la transition écologique et du ministère de la mer en charge du développement durable des activités maritimes.<br/>Les textes de références sont l’arrêté préfectoral 1744 du 15 Juillet 2008 avec son amendement, l’arrêté préfectoral 2205 du 12 Juin 2019.<br/>On y retrouve les limites de navigations en kitesurf et notamment les autorisations spécifiques à la RMNR pour le spot de Trou d’Eau."
-general_rule_frame_4: "Enfin, les maires des communes du littoral émettent des arrêtés municipaux dans l’intérêt de la sécurité des populations dans la bande des 300m du rivage. Il existe 3 arrêtés municipaux portés à notre connaissance en vigueur actuellement relatif à la baignade et aux sports nautiques:<ul class='ms-5 ps-5'><li>Mairie de Saint Denis: Arrêté municipal temporaire 129-2021 en vigueur jusqu’au 31/12/2022</li><li>Mairie de Saint Paul: Arrêté municipal 2009-2622</li><li>Mairie de Saint Pierre: Arrêté municipal 177PG-2014</li></ul>"
-general_rule_frame_ps_1: "Maintenant que le décors est planté nous vous proposons dans la suite des extraits pertinents des textes ci-dessus."
-general_rule_frame_ps_2: "Attention: Seul le texte original prévaut fait office de loi !"

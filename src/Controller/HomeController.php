@@ -17,7 +17,7 @@ class HomeController extends AbstractController
     #[Route('/spots', name: 'spots')]
     public function spots(): Response
     {
-        return $this->render('home/index.html.twig');
+        return $this->render('spots/index.html.twig');
     }
 
     #[Route('/general-rules', name: 'general_rules')]
