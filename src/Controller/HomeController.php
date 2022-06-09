@@ -23,6 +23,6 @@ class HomeController extends AbstractController
     #[Route('/general-rules', name: 'general_rules')]
     public function generalRules(): Response
     {
-        return $this->render('home/index.html.twig');
+        return $this->render('general_rules/index.html.twig');
     }
 }
