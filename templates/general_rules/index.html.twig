@@ -2,48 +2,14 @@
 
 {% block title %}{{ 'general_rules'|trans }}{% endblock %}
 
-{% block body %}
-    <header class="masthead"
-            style="
-                    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/home.gif') }});
-                    height: auto;
-                    ">
-        <div class="container px-4 px-lg-5 h-100 py-5">
-            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-start text-white">
-                <h2 class="text-center font-weight-bold">{{ 'important_information'|trans }}</h2>
-                <hr class="divider"/>
-                {% if importantNotices %}
-                    <p>{{ importantNotices|raw }}</p>
-                {% else %}
-                    <p class="text-start">
-                        {{ 'important_information_1'|trans }}<br/>
-                        {{ 'important_information_2'|trans }}<br/>
-                        {{ 'important_information_3'|trans|raw }}<br/>
-                    </p>
-                {% endif %}
-                <hr class="divider"/>
-                <h2 class="text-center font-weight-bold">{{ 'general_rule_frame'|trans }}</h2>
-                <hr class="divider"/>
-                {% if generalFrameContent %}
-                    <p>{{ generalFrameContent|raw }}</p>
-                {% else %}
-                    <p> 1. {{ 'general_rule_frame_1'|trans|raw }}</p><br/><br/>
-                    <p> 2. {{ 'general_rule_frame_2'|trans|raw }}</p><br/><br/>
-                    <p> 3. {{ 'general_rule_frame_3'|trans|raw }}</p><br/><br/>
-                    <p> 4. {{ 'general_rule_frame_4'|trans|raw }}</p><br/><br/>
-                    <p>    {{ 'general_rule_frame_ps_1'|trans }}
-                        {{ 'general_rule_frame_ps_2'|trans }}
-                    </p>
-                {% endif %}
-            </div>
-        </div>
-    </header>
-    <footer class="bg-light py-5">
-        <div class="container px-4 px-lg-5">
-            <div class="small text-center text-muted">
-                {{ 'copyright'|trans }}
-                <a class="ms-4" href="{{ path('general_rules') }}">{{ 'general_rules'|trans }}</a>
-            </div>
-        </div>
-    </footer>
+{% block mainSection %}
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-start text-white">
+        <h2 class="text-center font-weight-bold">{{ 'important_information'|trans }}</h2>
+        <hr class="divider"/>
+        <p>{{ importantNotices|raw }}</p>
+        <hr class="divider"/>
+        <h2 class="text-center font-weight-bold">{{ 'general_rule_frame'|trans }}</h2>
+        <hr class="divider"/>
+        <p>{{ generalFrameContent|raw }}</p>
+    </div>
 {% endblock %}

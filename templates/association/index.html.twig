@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'discover_association'|trans }}{% endblock %}
+
+{% block mainSection %}
+    <h2 class="text-center font-weight-bold">{{ 'pitches'|trans }}</h2>
+    <hr class="divider"/>
+    <p>{{ pitches|raw }}</p>
+{% endblock %}

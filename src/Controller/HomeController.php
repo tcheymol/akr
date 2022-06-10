@@ -36,4 +36,25 @@ class HomeController extends AbstractController
             'generalFrameContent' => $texts->getContent('general_frame'),
         ]);
     }
+
+    #[Route('/association', name: 'association')]
+    public function association(TextManager $texts): Response
+    {
+        return $this->render('association/index.html.twig', [
+            'pitches' => $texts->getContent('pitches'),
+            'office' => $texts->getContent('office'),
+            'licences' => $texts->getContent('licences'),
+            'eventes' => $texts->getContent('eventes'),
+        ]);
+    }
+
+    #[Route('/navigate', name: 'navigate')]
+    public function navigate(TextManager $texts): Response
+    {
+        return $this->render('navigate/index.html.twig', [
+            'begin' => $texts->getContent('begin'),
+            'lessons' => $texts->getContent('lessons'),
+            'general' => $texts->getContent('general'),
+        ]);
+    }
 }
