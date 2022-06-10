@@ -12051,7 +12051,7 @@ header.masthead h1, header.masthead .h1 {
         padding-bottom: 0;
     }
 
-    header.masthead p {
+    header.masthead p, header.masthead div {
         font-size: 1.15rem;
     }
 
