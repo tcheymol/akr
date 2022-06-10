@@ -1,11 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ include('components/header.html.twig', {links: [
-        { href: "#about", label: 'members'|trans },
-        { href: "#spot_1", label: 'spot_1'|trans },
-        { href: "#spot_2", label: 'spot_2'|trans },
-    ]}) }}
     <header class="masthead"
             style="background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/home.gif') }});">
         <div class="container px-4 px-lg-5 h-100">
@@ -15,17 +10,22 @@
                     <hr class="divider"/>
                 </div>
                 <div class="col-lg-8 align-self-baseline">
-                    <p class="text-white-75 mb-5">
-                        {{ 'main_subtitle_1'|trans }}<br/><br/>
-                        {{ 'main_subtitle_2'|trans }}<br/><br/>
-                        {{ 'main_subtitle_3'|trans }}<br/>
-                    </p>
-                    <a class="btn btn-primary btn-xl" href="#about">{{ 'discover_association'|trans }}</a>
+                    <div class="text-white-75 mb-5">
+                        {% if landingText %}
+                            {{ landingText|raw }}
+                        {% else %}
+                            {{ 'main_subtitle_1'|trans }}<br/><br/>
+                            {{ 'main_subtitle_2'|trans }}<br/><br/>
+                            {{ 'main_subtitle_3'|trans }}<br/>
+                        {% endif %}
+                    </div>
+                    <a class="btn btn-primary btn-xl" href="#about"
+                       data-turbo="false">{{ 'discover_association'|trans }}</a>
                 </div>
             </div>
         </div>
     </header>
-    <section class="page-section bg-primary" id="about">
+    <section class="page-section bg-primary" id="about" data-turbolinks="false">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-lg-8 text-center">
@@ -38,11 +38,11 @@
                             <p class="text-white-75 mb-4">
                                 {{ 'where_to_find_members_spot_1' |trans }}
                             </p>
-                            <a class="btn btn-light btn-xl" href="#spot_1">{{ 'spot_1' |trans }}</a>
+                            <a class="btn btn-light btn-xl" href="#spot_1" data-turbo="false">{{ 'spot_1' |trans }}</a>
                         </div>
                         <div class="col-12 col-md-6">
                             <p class="text-white-75 mb-4">{{ 'where_to_find_members_spot_2' |trans }}</p>
-                            <a class="btn btn-light btn-xl" href="#spot_2">{{ 'spot_2' |trans }}</a>
+                            <a class="btn btn-light btn-xl" href="#spot_2" data-turbo="false">{{ 'spot_2' |trans }}</a>
                         </div>
                     </div>
                 </div>

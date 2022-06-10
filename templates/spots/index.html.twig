@@ -3,7 +3,6 @@
 {% block title %}{{ 'spots'|trans }}{% endblock %}
 
 {% block body %}
-    {{ include('components/header.html.twig', {links: []}) }}
     <header class="masthead"
             style="
                     background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/home.gif') }});
@@ -13,21 +12,30 @@
             <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-start text-white">
                 <h2 class="text-center font-weight-bold">{{ 'spots'|trans }}</h2>
                 <hr class="divider"/>
-                <p>{{ 'spots_intro_1'|trans }}</p>
-                <p>{{ 'spots_intro_2'|trans }}</p>
-                <p>{{ 'spots_intro_3'|trans }}</p>
-                <p>{{ 'spots_intro_4'|trans }}</p>
-                <p>{{ 'spots_intro_5'|trans }}</p>
+                {% if spotsIntro %}
+                    {{ spotsIntro|raw }}
+                {% else %}
+                    <p>{{ 'spots_intro_1'|trans }}</p>
+                    <p>{{ 'spots_intro_2'|trans }}</p>
+                    <p>{{ 'spots_intro_3'|trans }}</p>
+                    <p>{{ 'spots_intro_4'|trans }}</p>
+                    <p>{{ 'spots_intro_5'|trans }}</p>
+                {% endif %}
                 <hr class="divider"/>
                 <h2 class="text-center font-weight-bold">{{ 'general_spots_rules'|trans }}</h2>
                 <hr class="divider"/>
-                <p>{{ 'general_spots_rules_1'|trans|raw }}</p>
-                <p>{{ 'general_spots_rules_2'|trans|raw }}</p>
-                <p>{{ 'general_spots_rules_3'|trans|raw }}</p>
-                <p>{{ 'general_spots_rules_4'|trans|raw }}</p>
-                <p>{{ 'general_spots_rules_5'|trans|raw }}</p>
-                <p>{{ 'general_spots_rules_6'|trans|raw }}</p>
-                <p class="text-center">{{ 'general_spots_rules_7'|trans|raw }}</p>
+                {% if spotsRecommendations %}
+                    {{ spotsRecommendations|raw }}
+                {% else %}
+                    <p>{{ 'general_spots_rules_1'|trans|raw }}</p>
+                    <p>{{ 'general_spots_rules_2'|trans|raw }}</p>
+                    <p>{{ 'general_spots_rules_3'|trans|raw }}</p>
+                    <p>{{ 'general_spots_rules_4'|trans|raw }}</p>
+                    <p>{{ 'general_spots_rules_5'|trans|raw }}</p>
+                    <p>{{ 'general_spots_rules_6'|trans|raw }}</p>
+                    <p class="text-center">{{ 'general_spots_rules_7'|trans|raw }}</p>
+                {% endif %}
+
             </div>
         </div>
     </header>
