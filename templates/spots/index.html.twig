@@ -31,9 +31,12 @@
             </div>
         </div>
     </header>
-    {% for spot in spots %}
-        {{ include('spots/spot.html.twig', { spot }) }}
-    {% endfor %}
+    <div class="container pt-0 pt-lg-0 p-4 p-lg-5">
+        {% for index, spot in spots %}
+            <hr class="divider"/>
+            {{ include('spots/spot.html.twig', { index, spot }) }}
+        {% endfor %}
+    </div>
     <footer class="bg-light py-5">
         <div class="container px-4 px-lg-5">
             <div class="small text-center text-muted">

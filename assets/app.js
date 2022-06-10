@@ -12,4 +12,5 @@ import './styles/app.css';
 import './bootstrap';
 
 // other js files
+// import 'bootstrap';
 import './scripts';
