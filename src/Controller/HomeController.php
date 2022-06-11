@@ -41,7 +41,7 @@ class HomeController extends AbstractController
     public function association(TextManager $texts): Response
     {
         return $this->render('association/index.html.twig', [
-            'pitches' => $texts->getContent('pitches'),
+            'pitch' => $texts->getContent('pitch'),
             'office' => $texts->getContent('office'),
             'licences' => $texts->getContent('licences'),
             'eventes' => $texts->getContent('eventes'),

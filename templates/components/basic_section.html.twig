@@ -1,0 +1,26 @@
+{% set color = color is defined ? color : 'primary' %}
+{% set textColor = color is same as 'primary' ? 'light' : 'primary' %}
+
+<section class="page-section bg-{{ color }}" id="about" data-turbolinks="false">
+    <div class="container px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="text-{{ textColor }} mt-0">{{ title }}</h2>
+                {% if subtitle is defined %}
+                    <h6 class="text-{{ textColor }} mt-0">{{ subtitle }}</h6>
+                {% endif %}
+                <hr class="divider divider-{{ textColor }}"/>
+                <div class="row text-{{ textColor }}">
+                    {{ content|raw }}
+                </div>
+            </div>
+        </div>
+        {% if isLast %}
+            {{ include('components/back_to_top_button.html.twig', {'color': textColor}) }}
+        {% else %}
+            {{ include('components/next_section_button.html.twig', {'href': title, 'color': textColor}) }}
+        {% endif %}
+    </div>
+</section>
+<div id="{{ title }}"></div>
+

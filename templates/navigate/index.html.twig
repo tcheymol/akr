@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'navigate_reunion'|trans }}{% endblock %}
+
+{% block mainSection %}
+    <h2 class="text-center font-weight-bold">{{ 'general'|trans }}</h2>
+    <hr class="divider"/>
+    <p>{{ general|raw }}</p>
+{% endblock %}
+
+{% set sections = [
+    {'title': 'begin'|trans,'content': begin},
+    {'title': 'lessons'|trans,'content': lessons},
+    {'title': 'general'|trans,'content': general},
+] %}
+
+{% block body %}
+    {% for index, section in sections %}
+        {{ include('components/basic_section.html.twig', {
+            'title': section.title,
+            'content': section.content,
+            'color': index is odd ? 'light' : 'primary',
+            'isLast': loop.last,
+        }) }}
+    {% endfor %}
+{% endblock %}

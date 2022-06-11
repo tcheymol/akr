@@ -3,7 +3,7 @@
 {% block title %}{{ 'general_rules'|trans }}{% endblock %}
 
 {% block mainSection %}
-    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-start text-white">
+    <div class="row gx-4 gx-lg-5 pb-4 h-100 align-items-center justify-content-center text-start text-white">
         <h2 class="text-center font-weight-bold">{{ 'important_information'|trans }}</h2>
         <hr class="divider"/>
         <p>{{ importantNotices|raw }}</p>
@@ -12,4 +12,8 @@
         <hr class="divider"/>
         <p>{{ generalFrameContent|raw }}</p>
     </div>
+{% endblock %}
+
+{% block mainSectionBottom %}
+    {{ include('components/back_to_top_button.html.twig') }}
 {% endblock %}

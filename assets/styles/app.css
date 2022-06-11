@@ -11925,6 +11925,7 @@ body {
 }
 
 .page-section {
+    min-height: 100vh;
     padding: 8rem 0;
 }
 

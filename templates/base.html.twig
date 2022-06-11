@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="FR_fr">
+<html lang="FR_fr" id="#page-top">
 <head>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon"
@@ -40,14 +40,18 @@
 {% endblock %}
 <header class="masthead"
         style="background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/home.gif') }});">
-    <div class="container px-4 px-lg-5 h-100">
+    <div class="container px-4 px-lg-5 h-100 pb-4">
         <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-white"
              style="min-height: calc(100vh - 7.5rem)">
             {% block mainSection %}
             {% endblock %}
+            {% block mainSectionBottom %}
+                {{ include('components/next_section_button.html.twig', {'href': 'main-section'}) }}
+            {% endblock %}
         </div>
     </div>
 </header>
+<div id="main-section"></div>
 {% block body %}
 {% endblock %}
 {% block footer %}
