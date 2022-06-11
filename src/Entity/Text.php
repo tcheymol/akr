@@ -32,7 +32,7 @@ class Text
         return $this->key;
     }
 
-    public function setKey(string $key): self
+    public function setKey(?string $key): self
     {
         $this->key = $key;
 
@@ -44,7 +44,7 @@ class Text
         return $this->location;
     }
 
-    public function setLocation(string $location): self
+    public function setLocation(?string $location): self
     {
         $this->location = $location;
 
@@ -56,7 +56,7 @@ class Text
         return $this->content;
     }
 
-    public function setContent(string $content): self
+    public function setContent(?string $content): self
     {
         $this->content = $content;
 

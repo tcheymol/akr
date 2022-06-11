@@ -44,7 +44,7 @@ class HomeController extends AbstractController
             'pitch' => $texts->getContent('pitch'),
             'office' => $texts->getContent('office'),
             'licences' => $texts->getContent('licences'),
-            'eventes' => $texts->getContent('eventes'),
+            'events' => $texts->getContent('events'),
         ]);
     }
 
