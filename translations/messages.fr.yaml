@@ -1,6 +1,7 @@
 Content: Contenu
 Text: Texte
 access: Comment s’y rendre
+back_to_top: Retour en haut de page
 begin: Débuter
 copyright: Copyright © 2022 - Attitude Kite
 dangers: Dangers
@@ -29,6 +30,7 @@ important_information: Informations importantes
 important_information_1: Nous présentons au mieux de nos connaissances les textes officiels en vigueur sur l’ensemble du département.
 important_information_2: Cette liste n’a aucune valeur légale et les mises à jour ou évolutions des réglementations pourraient intervenir avant d’être mise à jour sur nos pages d’informations.
 important_information_3: "<u>Note :</u> chaque texte est téléchargeable au format pdf en cliquant sur le lien hypertexte lorsqu’il est cité."
+know_more: En savoir plus
 lessons: Cours
 licences: Adhésions/Licences
 main_subtitle_1: Attitude Kite Réunion est une association, régie par la loi de 1901, à but non lucratif, regroupant les pratiquants de kitesurf de la Réunion.
@@ -43,6 +45,7 @@ office: Bureau
 orientation: Orientation
 pitch: Présentation
 position: Situation
+section_in_progress: <div class="text-center"><br/>Cette section est en cours de construction.<br/><br/><h1>🚧👷‍♀️🚧</h1><br/>Elle sera actualisée sous peu, veuillez réessayer dans quelques jours.<br/></div>
 security: Info sécurité
 see_all_spots: Voir tous les spots
 spot_1: Le spot de Trou d'eau
@@ -61,6 +64,3 @@ where_to_find_members_spot_1: Trou d’eau est le spot pour les pratiquants inte
 where_to_find_members_spot_2: Le spot de La Gendarmerie est beaucoup plus sélectif et s’adresse avant tout à des pratiquants confirmés à experts. Le lagon est petit avec peu d’eau, du corail et des oursins… Mais devant vous se dresse un magnifique spot de vagues ou il n’y a aucun surfeur ou windsurfeur… Juste des kiteurs !
 where_to_find_members_title_1: "Les membres d’Attitude Kite Réunion sont majoritairement présents sur les deux spots principaux de l’île :"
 where_to_find_members_title_2: Le spot de Trou d’eau à La Saline les Bains ainsi que sur le spot de La Gendarmerie à Saint-Pierre.
-back_to_top: Retour en haut de page
-know_more: En savoir plus
-section_in_progress: <div><br/>Cette section est en cours de construction.<br/><br/><h1>🚧👷‍♀️🚧</h1><br/>Elle sera actualisée sous peu, veuillez réessayer dans quelques jours.<br/></div>
