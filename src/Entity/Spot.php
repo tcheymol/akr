@@ -41,7 +41,10 @@ class Spot
     private ?string $security = null;
 
     #[ORM\Column(type: 'string', length: 1000, nullable: true)]
-    private $subtitle;
+    private ?string $subtitle = null;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $picture = null;
 
     public function __construct(string $name)
     {
@@ -171,5 +174,29 @@ class Spot
         $this->subtitle = $subtitle;
 
         return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): self
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    public function getPictureUrl(): ?string
+    {
+        if (!$this->picture) {
+            return null;
+        }
+        if (str_contains($this->picture, '/')) {
+            return $this->picture;
+        }
+
+        return sprintf('/uploads/spots/%s', $this->picture);
     }
 }
