@@ -7,6 +7,7 @@ copyright: Copyright © 2022 - Attitude Kite
 dangers: Dangers
 description: Descriptif
 discover_association: Découvrir L'association
+email: Email
 events: Évènements
 general: Généralités
 general_rule_frame: Cadre réglementaire général
@@ -33,6 +34,7 @@ important_information_3: "<u>Note :</u> chaque texte est téléchargeable au for
 know_more: En savoir plus
 lessons: Cours
 licences: Adhésions/Licences
+login: Connexion
 main_subtitle_1: Attitude Kite Réunion est une association, régie par la loi de 1901, à but non lucratif, regroupant les pratiquants de kitesurf de la Réunion.
 main_subtitle_2: Elle a pour objectif de développer et promouvoir la pratique du kite à la Réunion dans une dynamique d’entraide et de partage.
 main_subtitle_3: Cette association renommée en 2021, est née du travail et de la fusion des associations Attitude Kite Saint Pierre et Saline Kite Club, qui depuis 2008 ont grandement contribué à faire vivre et rayonner l’esprit kitesurf sur notre belle île.
@@ -43,6 +45,7 @@ navigate: Naviguer
 navigate_reunion: Naviguer à la Réunion
 office: Bureau
 orientation: Orientation
+password: Mot de passe
 pitch: Présentation
 position: Situation
 section_in_progress: <div class="text-center"><br/>Cette section est en cours de construction.<br/><br/><h1>🚧👷‍♀️🚧</h1><br/>Elle sera actualisée sous peu, veuillez réessayer dans quelques jours.<br/></div>
@@ -64,3 +67,4 @@ where_to_find_members_spot_1: Trou d’eau est le spot pour les pratiquants inte
 where_to_find_members_spot_2: Le spot de La Gendarmerie est beaucoup plus sélectif et s’adresse avant tout à des pratiquants confirmés à experts. Le lagon est petit avec peu d’eau, du corail et des oursins… Mais devant vous se dresse un magnifique spot de vagues ou il n’y a aucun surfeur ou windsurfeur… Juste des kiteurs !
 where_to_find_members_title_1: "Les membres d’Attitude Kite Réunion sont majoritairement présents sur les deux spots principaux de l’île :"
 where_to_find_members_title_2: Le spot de Trou d’eau à La Saline les Bains ainsi que sur le spot de La Gendarmerie à Saint-Pierre.
+users: Utilisateurs
