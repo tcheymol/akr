@@ -1,0 +1,9 @@
+{% set color = color is defined ? color : 'primary' %}
+<div class="row">
+    <a class="col-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4 mt-4 btn btn-{{ color }} btn-xl" href="#{{ href }}"
+       data-turbo="false">
+        <i class="fas fa-angles-down me-2"></i>
+        {{ 'know_more'|trans }}
+        <i class="fas fa-angles-down ms-2"></i>
+    </a>
+</div>

@@ -11925,6 +11925,7 @@ body {
 }
 
 .page-section {
+    min-height: 100vh;
     padding: 8rem 0;
 }
 
@@ -12031,6 +12032,7 @@ hr.divider-light {
 }
 
 header.masthead {
+    min-height: 100vh;
     padding-top: 10rem;
     padding-bottom: calc(10rem - 4.5rem);
     background-position: center !important;
@@ -12045,9 +12047,10 @@ header.masthead h1, header.masthead .h1 {
 
 @media (min-width: 992px) {
     header.masthead {
-        height: 100vh;
+        height: auto;
+        /*height: 100vh;*/
         min-height: 40rem;
-        padding-top: 4.5rem;
+        padding-top: 7.5rem;
         padding-bottom: 0;
     }
 

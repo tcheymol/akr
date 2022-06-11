@@ -1,5 +1,13 @@
+Content: Contenu
+Text: Texte
+access: Comment s’y rendre
+begin: Débuter
 copyright: Copyright © 2022 - Attitude Kite
+dangers: Dangers
+description: Descriptif
 discover_association: Découvrir L'association
+events: Évènements
+general: Généralités
 general_rule_frame: Cadre réglementaire général
 general_rule_frame_1: Sur le territoire national, la circulation maritime est de la compétence du délégué du gouvernement à l’action de l’état en mer. L’article 240-2.11 (arrêté du 6 mai 2019) paru au journal officiel du 12 mai 2019 modifiant l’arrêté du 23 novembre 1987 relatif à la sécurité des navires (“Division 240“) précise le cadre réglementaire du kitesurf sur le domaine public maritime.<br/>La Division 240 est le texte officiel en termes de définitions, limite de navigation et d’équipements de sécurité minimaux.<br/>Le décret 2007-236 du 21 Février 2007 du ministère de l’écologie et du développement durable ordonne la création de la Réserve Marine Nationale de la Réunion (la RMNR). Sauf dans les zones autorisées par le préfet, la navigation y est interdite.<br/>Nous vous recommandons de consulter le dépliant Kite et sports nautiques de la RMNR.
 general_rule_frame_2: "A consulter également, les pages de la DEAL:<br/><ul class='ms-5 ps-5'><li>Règlementation de la réserve</li><li>Périmètre de la réserve</li></ul><br/><span><u class='ms-3'>Note:</u> Le spot de Trou d’eau est intégralement situé dans la réserve et fait l’objet d’une autorisation préfectorale de navigation spécifique (voir la page réglementation du spot de Trou d’Eau).</span>"
@@ -21,11 +29,21 @@ important_information: Informations importantes
 important_information_1: Nous présentons au mieux de nos connaissances les textes officiels en vigueur sur l’ensemble du département.
 important_information_2: Cette liste n’a aucune valeur légale et les mises à jour ou évolutions des réglementations pourraient intervenir avant d’être mise à jour sur nos pages d’informations.
 important_information_3: "<u>Note :</u> chaque texte est téléchargeable au format pdf en cliquant sur le lien hypertexte lorsqu’il est cité."
+lessons: Cours
+licences: Adhésions/Licences
 main_subtitle_1: Attitude Kite Réunion est une association, régie par la loi de 1901, à but non lucratif, regroupant les pratiquants de kitesurf de la Réunion.
 main_subtitle_2: Elle a pour objectif de développer et promouvoir la pratique du kite à la Réunion dans une dynamique d’entraide et de partage.
 main_subtitle_3: Cette association renommée en 2021, est née du travail et de la fusion des associations Attitude Kite Saint Pierre et Saline Kite Club, qui depuis 2008 ont grandement contribué à faire vivre et rayonner l’esprit kitesurf sur notre belle île.
 main_title: Attitude Kite Réunion
 members: Membres
+more: À savoir
+navigate: Naviguer
+navigate_reunion: Naviguer à la Réunion
+office: Bureau
+orientation: Orientation
+pitch: Présentation
+position: Situation
+security: Info sécurité
 see_all_spots: Voir tous les spots
 spot_1: Le spot de Trou d'eau
 spot_2: Le spot de la Gendarmerie
@@ -35,19 +53,13 @@ spots_intro_2: La navigation sur l’ensemble des spots présentés ci après re
 spots_intro_3: Merci de respecter la réglementation maritime, les lieux et ses différents usagers afin de permettre à tous de rider sereinement et de profiter au mieux des conditions de vent qu’offre notre île tout au long de l’année.
 spots_intro_4: "A savoir : l’ensemble des spots présentés requiert un niveau de pratique autonome, confirmé à expert. C’est pourquoi il n’existe pas d’école de kitesurf à la Réunion. Nos îles sœurs (Maurice, Rodrigues, Madagascar) seront quand à elle vous offrir des zones d’apprentissages exceptionnelles !"
 spots_intro_5: Dans tous les cas, n’hésitez pas à vous rapprocher des kitesurfeurs locaux, ils se feront un plaisir de vous aider et vous conseiller !
+texts: Textes
+the_association: L'association
+water: Plan d’eau
 where_to_find_members: Où trouver des membres de l'association ?
 where_to_find_members_spot_1: Trou d’eau est le spot pour les pratiquants intermédiaires à experts. C’est un spot de flat plutôt orienté freeride, freestyle.
 where_to_find_members_spot_2: Le spot de La Gendarmerie est beaucoup plus sélectif et s’adresse avant tout à des pratiquants confirmés à experts. Le lagon est petit avec peu d’eau, du corail et des oursins… Mais devant vous se dresse un magnifique spot de vagues ou il n’y a aucun surfeur ou windsurfeur… Juste des kiteurs !
 where_to_find_members_title_1: "Les membres d’Attitude Kite Réunion sont majoritairement présents sur les deux spots principaux de l’île :"
 where_to_find_members_title_2: Le spot de Trou d’eau à La Saline les Bains ainsi que sur le spot de La Gendarmerie à Saint-Pierre.
-position: Situation
-access: Comment s’y rendre
-description: Descriptif
-orientation: Orientation
-water: Plan d’eau
-dangers: Dangers
-more: À savoir
-security: Info sécurité
-texts: Textes
-Text: Texte
-Content: Contenu
+back_to_top: Retour en haut de page
+know_more: En savoir plus

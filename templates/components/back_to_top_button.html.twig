@@ -1,0 +1,9 @@
+{% set color = color is defined ? color : 'primary' %}
+<div class="row justify-content-center">
+    <a class="col-4 btn btn-{{ color }} btn-xl mt-4" href="#page-top" data-turbo="false">
+        <i class="fas fa-angles-up me-2"></i>
+        {{ 'back_to_top'|trans }}
+        <i class="fas fa-angles-up ms-2"></i>
+    </a>
+</div>
+
