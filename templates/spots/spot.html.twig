@@ -1,15 +1,23 @@
-{% set offset = index is odd ? 1 : 0 %}
 {% set color = 'light' %}
-{% set textColor = 'primary' %}
-<section class="col-12 col-xl-11 offset-xl-{{ offset }}">
-    <div class="card bg-{{ color }} mb-0 text-{{ textColor }}">
-        <div class="card-header">{{ spot.name|upper }}</div>
-        <div class="card-body">
+{% set textColor = 'dark' %}
+<section class="col-12 col-lg-6 mt-3" type="button" data-bs-toggle="collapse"
+         data-bs-target="#collapse-spot-{{ spot.id }}"
+         aria-expanded="false" aria-controls="collapseExample">
+    <div class="card h-100 bg-{{ color }} mb-0 text-{{ textColor }}">
+        <div class="card-header d-flex">
+            <span class="flex-grow-1 text-dark">
+            {{ spot.name|upper }}
+            </span>
+            <a href="">{{ 'know_more'|trans }}</a>
+        </div>
+        <div class="card-body ">
             {% if spot.subtitle %}
                 <h5 class="card-title text-center">{{ spot.subtitle|raw }}</h5>
-                <hr class="divider"/>
             {% endif %}
-            <div class="card-text">
+            <div class="card-text collapse" id="collapse-spot-{{ spot.id }}">
+                {% if spot.subtitle %}
+                    <hr class="divider"/>
+                {% endif %}
                 {% if spot.position %}<p><b><u>{{ 'position'|trans }}</u></b> : {{ spot.position|raw }}</p>{% endif %}
                 {% if spot.access %}<p><b><u>{{ 'access'|trans }}</u></b> : {{ spot.access|raw }}</p>{% endif %}
                 {% if spot.description %}<p><b><u>{{ 'description'|trans }}</u></b> : {{ spot.description|raw }}
@@ -22,8 +30,8 @@
                 {% if spot.security %}<p><b><u>{{ 'security'|trans }}</u></b> : {{ spot.security|raw }}</p>{% endif %}
             </div>
         </div>
-        <img class="card-img-top" src="{{ spot.pictureUrl }}" alt="Spot image">
+        {% if spot.pictureUrl %}
+            <img class="card-img-top" src="{{ spot.pictureUrl }}" alt="Spot image">
+        {% endif %}
     </div>
 </section>
-
-
