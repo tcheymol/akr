@@ -7,12 +7,15 @@
     <hr class="divider divider-light"/>
     <div class="row">
         <div class="col col-12 col-md-6 d-flex flex-column align-content-center justify-content-between">
-            <p class="text-white-75 mb-4">{{ 'where_to_find_members_spot_1' |trans }}</p>
-            <a class="btn btn-light btn-xl" href="#spot_1" data-turbo="false">{{ 'spot_1' |trans }}</a>
+            <p class="text-white-75 mb-4">{{ 'where_to_find_members_spot_1' |trans|raw }}</p>
         </div>
         <div class="col-12 col-md-6">
-            <p class="text-white-75 mb-4">{{ 'where_to_find_members_spot_2' |trans }}</p>
-            <a class="btn btn-light btn-xl" href="#spot_2" data-turbo="false">{{ 'spot_2' |trans }}</a>
+            <p class="text-white-75 mb-4">{{ 'where_to_find_members_spot_2' |trans|raw }}</p>
         </div>
     </div>
+    <div class="col-12">
+        <a class="btn btn-light btn-xl" href="{{ path('spots') }}" data-turbo="false">{{ 'see_all_spots' |trans }}</a>
+    </div>
+    <hr class="divider divider-light"/>
+    {#    {{ include('components/next_section_button.html.twig', {href: title, color: 'light'}) }} #}
 {% endblock %}

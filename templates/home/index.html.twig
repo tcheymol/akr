@@ -11,40 +11,5 @@
 {% endblock %}
 
 {% block body %}
-    {{ include('home/members.html.twig') }}
-    <section id="spot_1">
-        <div class="portfolio">
-            <h2 class="text-primary mt-0 text-center py-4">{{ 'spot_1'|trans }}</h2>
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    <div class="col-12">
-                        <a class="portfolio-box" href="{{ asset('build/img/trou.jpg') }}"
-                           title="Project Name">
-                            <img class="img-fluid" src="{{ asset('build/img/trou.jpg') }}" alt="..."/>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="spot_2">
-        <div class="portfolio">
-            <h2 class="text-primary mt-0 text-center py-4">{{ 'spot_2'|trans }}</h2>
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    <div class="col-12">
-                        <a class="portfolio-box" href="{{ asset('build/img/gendarmerie.jpg') }}"
-                           title="Project Name">
-                            <img class="img-fluid" src="{{ asset('build/img/gendarmerie.jpg') }}" alt="..."/>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="d-grid gap-2 p-5">
-        <a class="btn btn-lg btn-primary" href="{{ path('spots') }}">
-            {{ 'see_all_spots'|trans }}
-        </a>
-    </div>
+    {{ include('home/members.html.twig', {title: 'members'}) }}
 {% endblock %}
