@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Spot;
 use App\Manager\TextManager;
+use App\Repository\ImageRepository;
 use App\Repository\SpotRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,6 +27,14 @@ class HomeController extends AbstractController
             'spotsIntro' => $texts->getContent('spots_intro'),
             'spotsRecommendations' => $texts->getContent('spots_recommendations'),
             'spots' => $repository->findAll()
+        ]);
+    }
+
+    #[Route('/spots/{id}', name: 'spot')]
+    public function spot(Spot $spot): Response
+    {
+        return $this->render('spots/show.html.twig', [
+            'spot' => $spot,
         ]);
     }
 
@@ -55,6 +65,14 @@ class HomeController extends AbstractController
             'begin' => $texts->getContent('begin'),
             'lessons' => $texts->getContent('lessons'),
             'general' => $texts->getContent('general'),
+        ]);
+    }
+
+    #[Route('/gallery', name: 'gallery')]
+    public function gallery(ImageRepository $imageRepository): Response
+    {
+        return $this->render('gallery/index.html.twig', [
+            'images' => $imageRepository->findAll(),
         ]);
     }
 }

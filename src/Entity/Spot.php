@@ -46,6 +46,9 @@ class Spot
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $picture = null;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $windguruId;
+
     public function __construct(string $name)
     {
         $this->name = $name;
@@ -197,6 +200,18 @@ class Spot
             return $this->picture;
         }
 
-        return sprintf('/uploads/spots/%s', $this->picture);
+        return sprintf('/uploads/%s', $this->picture);
+    }
+
+    public function getWindguruId(): ?int
+    {
+        return $this->windguruId;
+    }
+
+    public function setWindguruId(?int $windguruId): self
+    {
+        $this->windguruId = $windguruId;
+
+        return $this;
     }
 }

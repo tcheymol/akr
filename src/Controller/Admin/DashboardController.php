@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Image;
 use App\Entity\Spot;
 use App\Entity\Text;
 use App\Entity\User;
@@ -30,14 +31,15 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Akr');
+            ->setTitle('Akr')
+            ->setFaviconPath('favicon.ico');
     }
 
     public function configureMenuItems(): iterable
     {
-//        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('spots', 'fas fa-umbrella-beach', Spot::class);
         yield MenuItem::linkToCrud('texts', 'fas fa-pencil', Text::class);
         yield MenuItem::linkToCrud('users', 'fas fa-users', User::class);
+        yield MenuItem::linkToCrud('gallery', 'fas fa-image', Image::class);
     }
 }

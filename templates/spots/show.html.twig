@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'spots'|trans }}{% endblock %}
+
+{% set spotItems = [
+    {'label': 'position', 'value': spot.position},
+    {'label': 'access', 'value': spot.access},
+    {'label': 'description', 'value': spot.description},
+    {'label': 'orientation', 'value': spot.orientation},
+    {'label': 'water', 'value': spot.water},
+    {'label': 'dangers', 'value': spot.dangers},
+    {'label': 'more', 'value': spot.more},
+    {'label': 'security', 'value': spot.security},
+] %}
+
+{% block mainSection %}
+    <div class="col text-center">
+        <h2 class="text-center font-weight-bold">{{ spot.name }}</h2>
+        {% if spot.subtitle %}
+            <hr class="divider"/>
+            {{ spot.subtitle|raw }}
+        {% endif %}
+        <hr class="divider"/>
+        {{ include('spots/_wg_widget.html.twig', {'wg_id': spot.windguruId}) }}
+        <hr class="divider"/>
+        <div class="row">
+            {% for spotItem in spotItems %}
+                {{ include('spots/_spot_item.html.twig', {'item': spotItem}) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block body %}
+{% endblock %}
+{% block mainSectionBottom %}
+{% endblock %}
