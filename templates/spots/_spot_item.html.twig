@@ -1,0 +1,7 @@
+{% if item.value %}
+    <div class="col-12 col-md-6">
+        <p class="text-start">
+            <span class="fw-bold text-decoration-underline underline-primary">{{ item.label|trans }}</span>: {{ item.value|raw }}
+        </p>
+    </div>
+{% endif %}

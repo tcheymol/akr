@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Spot;
 use App\Manager\TextManager;
 use App\Repository\ImageRepository;
 use App\Repository\SpotRepository;
@@ -26,6 +27,14 @@ class HomeController extends AbstractController
             'spotsIntro' => $texts->getContent('spots_intro'),
             'spotsRecommendations' => $texts->getContent('spots_recommendations'),
             'spots' => $repository->findAll()
+        ]);
+    }
+
+    #[Route('/spots/{id}', name: 'spot')]
+    public function spot(Spot $spot): Response
+    {
+        return $this->render('spots/show.html.twig', [
+            'spot' => $spot,
         ]);
     }
 

@@ -3707,6 +3707,10 @@ textarea.form-control-lg {
     text-decoration: underline;
 }
 
+.text-decoration-underline.underline-primary {
+    text-decoration-color: var(--bs-primary) !important;
+}
+
 .btn-link:hover {
     color: #c34e2e;
 }
