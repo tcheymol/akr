@@ -197,6 +197,6 @@ class Spot
             return $this->picture;
         }
 
-        return sprintf('/uploads/spots/%s', $this->picture);
+        return sprintf('/uploads/%s', $this->picture);
     }
 }

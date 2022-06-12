@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Manager\TextManager;
+use App\Repository\ImageRepository;
 use App\Repository\SpotRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -55,6 +56,14 @@ class HomeController extends AbstractController
             'begin' => $texts->getContent('begin'),
             'lessons' => $texts->getContent('lessons'),
             'general' => $texts->getContent('general'),
+        ]);
+    }
+
+    #[Route('/gallery', name: 'gallery')]
+    public function gallery(ImageRepository $imageRepository): Response
+    {
+        return $this->render('gallery/index.html.twig', [
+            'images' => $imageRepository->findAll(),
         ]);
     }
 }
