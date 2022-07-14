@@ -28,6 +28,9 @@
                         </a>
                     </li>
                 {% endfor %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('admin') }}" class="btn btn-outline-info btn-sm">{{ 'Admin' }}</a>
+                {% endif %}
             </ul>
         </div>
     </div>

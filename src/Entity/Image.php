@@ -19,6 +19,12 @@ class Image
     #[ORM\Column(type: 'string', length: 255)]
     private ?string $fileName = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $height = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $width = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -57,6 +63,30 @@ class Image
             return $this->fileName;
         }
 
-        return sprintf('/uploads/%s', $this->fileName);
+        return sprintf('/images/%s', $this->fileName);
+    }
+
+    public function getHeight(): ?int
+    {
+        return $this->height;
+    }
+
+    public function setHeight(?int $height): self
+    {
+        $this->height = $height;
+
+        return $this;
+    }
+
+    public function getWidth(): ?int
+    {
+        return $this->width;
+    }
+
+    public function setWidth(?int $width): self
+    {
+        $this->width = $width;
+
+        return $this;
     }
 }

@@ -1,8 +1,12 @@
 <footer class="bg-light py-5">
     <div class="container px-4 px-lg-5">
-        <div class="small text-center text-muted">
-            {{ 'copyright'|trans }}
-            <a class="ms-4" href="{{ path('general_rules') }}">{{ 'general_rules'|trans }}</a>
+        <div class="d-flex">
+            <div class="small text-center text-muted flex-grow-1">
+                {{ 'copyright'|trans }}
+                <a class="ms-4" href="{{ path('general_rules') }}">{{ 'general_rules'|trans }}</a>
+                <a class="ms-auto" href="{{ path('login') }}">{{ 'login'|trans }}</a>
+            </div>
+            <a class="ms-auto small" href="{{ path('login') }}">{{ 'login'|trans }}</a>
         </div>
     </div>
 </footer>
