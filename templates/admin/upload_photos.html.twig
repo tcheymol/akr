@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block mainSection %}
+    <div {{ stimulus_controller('dropzone', {
+        'url': path('upload_photos')
+    }) }}></div>
+    <form
+            action="/target" class="dropzone"
+    ></form>
+{% endblock %}
+
+{% block mainSectionBottom %}{% endblock %}

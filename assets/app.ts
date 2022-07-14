@@ -14,5 +14,6 @@ import './bootstrap';
 // other js files
 import '@fortawesome/fontawesome-free';
 import '@fortawesome/fontawesome-free/css/all.css';
+
 // import 'bootstrap';
 import './scripts';

@@ -41,5 +41,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('texts', 'fas fa-pencil', Text::class);
         yield MenuItem::linkToCrud('users', 'fas fa-users', User::class);
         yield MenuItem::linkToCrud('gallery', 'fas fa-image', Image::class);
+        yield MenuItem::linkToRoute('upload_photos', 'fas fa-image', 'upload_photos');
     }
 }
