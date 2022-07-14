@@ -51,20 +51,8 @@ class HomeController extends AbstractController
     public function association(TextManager $texts): Response
     {
         return $this->render('association/index.html.twig', [
-            'pitch' => $texts->getContent('pitch'),
-            'office' => $texts->getContent('office'),
-            'licences' => $texts->getContent('licences'),
-            'events' => $texts->getContent('events'),
-        ]);
-    }
-
-    #[Route('/navigate', name: 'navigate')]
-    public function navigate(TextManager $texts): Response
-    {
-        return $this->render('navigate/index.html.twig', [
-            'begin' => $texts->getContent('begin'),
-            'lessons' => $texts->getContent('lessons'),
-            'general' => $texts->getContent('general'),
+            'associationIntro' => $texts->getContent('association_intro'),
+            'associationBody' => $texts->getContent('association_body'),
         ]);
     }
 
@@ -73,6 +61,16 @@ class HomeController extends AbstractController
     {
         return $this->render('gallery/index.html.twig', [
             'images' => $imageRepository->findAll(),
+        ]);
+    }
+
+    #[Route('/meteo', name: 'meteo')]
+    public function meteo(TextManager $texts): Response
+    {
+        return $this->render('meteo/index.html.twig', [
+            'intro1' => $texts->getContent('meteo_intro_1'),
+            'intro2' => $texts->getContent('meteo_intro_2'),
+            'body' => $texts->getContent('meteo_body'),
         ]);
     }
 }
