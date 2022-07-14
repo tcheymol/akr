@@ -9,6 +9,7 @@
                 <h5 class="card-title text-center">{{ spot.subtitle|raw }}</h5>
             {% endif %}
         </div>
+        {{ include('spots/_wg_widget.html.twig', {'wg_id': spot.windguruId, 'id': spot.id}) }}
         {% if spot.pictureUrl %}
             <img class="card-img-top" src="{{ spot.pictureUrl }}" alt="Spot image">
         {% endif %}

@@ -21,7 +21,7 @@
             {{ spot.subtitle|raw }}
         {% endif %}
         <hr class="divider"/>
-        {{ include('spots/_wg_widget.html.twig', {'wg_id': spot.windguruId}) }}
+        {{ include('spots/_wg_widget.html.twig', {'wg_id': spot.windguruId, 'id': spot.id}) }}
         <hr class="divider"/>
         <div class="row">
             {% for spotItem in spotItems %}
