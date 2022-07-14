@@ -3,16 +3,13 @@
 {% block title %}{{ 'discover_association'|trans }}{% endblock %}
 
 {% block mainSection %}
-    <h2 class="text-center font-weight-bold">{{ 'pitch'|trans }}</h2>
+    <h2 class="text-center font-weight-bold">{{ 'the_association'|trans }}</h2>
     <hr class="divider"/>
-    <p>{{ pitch|raw }}</p>
+    <p>{{ associationIntro|raw }}</p>
 {% endblock %}
 
 {% set sections = [
-    {'title': 'pitch'|trans,'content': pitch},
-    {'title': 'office'|trans,'content': office},
-    {'title': 'licences'|trans,'content': licences},
-    {'title': 'events'|trans,'content': events},
+    {'title': '','content': associationBody},
 ] %}
 
 {% block body %}
