@@ -5,21 +5,15 @@
 {% block mainSection %}
     <h2 class="text-center font-weight-bold">{{ 'the_association'|trans }}</h2>
     <hr class="divider"/>
-    <p>{{ associationIntro|raw }}</p>
+    {{ include('components/_text.html.twig', {text: associationIntro}) }}
 {% endblock %}
 
-{% set sections = [
-    {'title': '','content': associationBody},
-] %}
-
 {% block body %}
-    {% for index, section in sections %}
-        {{ include('components/basic_section.html.twig', {
-            'title': section.title,
-            'content': section.content,
-            'color': index is odd ? 'light' : 'primary',
-            'isLast': loop.last,
-        }) }}
-    {% endfor %}
+    {{ include('components/basic_section.html.twig', {
+        'title': '',
+        'content': associationBody,
+        'color': 'light',
+        'isLast': false
+    }) }}
 {% endblock %}
 

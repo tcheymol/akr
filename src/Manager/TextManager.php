@@ -2,6 +2,7 @@
 
 namespace App\Manager;
 
+use App\Entity\Text;
 use App\Repository\TextRepository;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
@@ -16,9 +17,8 @@ class TextManager
         $this->translator = $translator;
     }
 
-    public function getContent(string $key): ?string {
-        $text = $this->repository->findOneBy(['key' => $key]);
-
-        return $text?->getContent() ?? $this->translator->trans('section_in_progress');
+    public function getByKey(string $key): ?Text
+    {
+        return $this->repository->findOneBy(['key' => $key]);
     }
 }

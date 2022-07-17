@@ -4,10 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Image;
 use App\Entity\Spot;
+use App\Entity\Text;
+use App\Form\TextType;
 use App\Manager\TextManager;
 use App\Repository\ImageRepository;
 use App\Repository\SpotRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -22,7 +25,7 @@ class HomeController extends AbstractController
     public function index(TextManager $texts): Response
     {
         return $this->render('home/index.html.twig', [
-            'landingText' => $texts->getContent('landing'),
+            'landingText' => $texts->getByKey('landing'),
         ]);
     }
 
@@ -30,8 +33,8 @@ class HomeController extends AbstractController
     public function spots(SpotRepository $repository, TextManager $texts): Response
     {
         return $this->render('spots/index.html.twig', [
-            'spotsIntro' => $texts->getContent('spots_intro'),
-            'spotsRecommendations' => $texts->getContent('spots_recommendations'),
+            'spotsIntro' => $texts->getByKey('spots_intro'),
+            'spotsRecommendations' => $texts->getByKey('spots_recommendations'),
             'spots' => $repository->findAll()
         ]);
     }
@@ -48,8 +51,8 @@ class HomeController extends AbstractController
     public function generalRules(TextManager $texts): Response
     {
         return $this->render('general_rules/index.html.twig', [
-            'importantNotices' => $texts->getContent('important_notices'),
-            'generalFrameContent' => $texts->getContent('general_frame'),
+            'importantNotices' => $texts->getByKey('important_notices'),
+            'generalFrameContent' => $texts->getByKey('general_frame'),
         ]);
     }
 
@@ -57,8 +60,8 @@ class HomeController extends AbstractController
     public function association(TextManager $texts): Response
     {
         return $this->render('association/index.html.twig', [
-            'associationIntro' => $texts->getContent('association_intro'),
-            'associationBody' => $texts->getContent('association_body'),
+            'associationIntro' => $texts->getByKey('association_intro'),
+            'associationBody' => $texts->getByKey('association_body'),
         ]);
     }
 
@@ -74,9 +77,9 @@ class HomeController extends AbstractController
     public function meteo(TextManager $texts): Response
     {
         return $this->render('meteo/index.html.twig', [
-            'intro1' => $texts->getContent('meteo_intro_1'),
-            'intro2' => $texts->getContent('meteo_intro_2'),
-            'body' => $texts->getContent('meteo_body'),
+            'intro1' => $texts->getByKey('meteo_intro_1'),
+            'intro2' => $texts->getByKey('meteo_intro_2'),
+            'body' => $texts->getByKey('meteo_body'),
         ]);
     }
 
@@ -108,5 +111,22 @@ class HomeController extends AbstractController
         }
 
         return new JsonResponse(['OK' => 'OK']);
+    }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/text/{id}', name: 'update_text', methods: ['GET', 'POST'])]
+    public function updateText(Request $request, Text $text, EntityManagerInterface $em): Response
+    {
+        $form = $this->createForm(TextType::class, $text, [
+            'action' => $this->generateUrl('update_text', ['id' => $text->getId()]),
+        ])->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->flush();
+
+            return $this->render('components/_text_content.html.twig', ['text' => $text]);
+        }
+
+        return $this->renderForm('components/_text_form.html.twig', ['form' => $form]);
     }
 }

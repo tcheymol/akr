@@ -1,0 +1,15 @@
+<div class="text-dark">
+    {{ form_start(form, {attr: {
+        'data-action': 'text#submitForm',
+        'data-turbo': 'false'
+    }}) }}
+    <div class="row">
+        <div class="col d-flex justify-content-end mb-2">
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-save"></i>
+            </button>
+        </div>
+    </div>
+    {{ form_widget(form.content) }}
+    {{ form_end(form) }}
+</div>
