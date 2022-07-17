@@ -14,10 +14,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use function sprintf;
+use function unlink;
 
 class HomeController extends AbstractController
 {
@@ -128,5 +131,16 @@ class HomeController extends AbstractController
         }
 
         return $this->renderForm('components/_text_form.html.twig', ['form' => $form]);
+    }
+
+    #[IsGranted('ROLE_ADMIN')]
+    #[Route('/image/{id}/remove', name: 'remove_image', methods: ['GET'])]
+    public function removeImage(Image $image, EntityManagerInterface $em, string $publicDir): RedirectResponse
+    {
+        unlink(sprintf('%s/%s', $publicDir, $image->getUrl()));
+        $em->remove($image);
+        $em->flush();
+
+        return $this->redirectToRoute('gallery');
     }
 }

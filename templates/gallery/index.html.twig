@@ -3,19 +3,35 @@
 {% block title %}{{ 'gallery'|trans }}{% endblock %}
 
 {% block mainSection %}
-    <div class="pswp-gallery pswp-gallery--single-column" id="my-gallery" {{ stimulus_controller('gallery') }}>
+    <div class="pswp-gallery pswp-gallery--single-column"
+         id="my-gallery" {{ stimulus_controller('gallery') }}>
         {% for image in images %}
-            <a href="{{ image.url }}"
-               data-pswp-srcset
-               data-pswp-width="{{ image.width ?? 500 }}"
-               data-pswp-height="{{ image.height ?? 500 }}"
-               target="_blank">
-                <img src="{{ image.url }}" alt="" style="max-width: 200px;"/>
-            </a>
+            <div class="position-relative d-inline-block">
+                <a href="{{ image.url }}"
+                   data-pswp-srcset
+                   data-pswp-width="{{ image.width ?? 500 }}"
+                   data-pswp-height="{{ image.height ?? 500 }}"
+                   target="_blank">
+                    <img src="{{ image.url }}" alt="" style="max-width: 200px;"/>
+                </a>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <button class="position-absolute top-right btn btn-danger text-white"
+                            {{ stimulus_controller('swal', {
+                                'confirmUrl': path('remove_image', {'id': image.id}),
+                                'text': 'are_you_sure_delete'|trans
+                            }) }}
+                            {{ stimulus_action('swal', 'warn') }}
+                    >
+                        <i class="fas fa-trash"></i>
+                    </button>
+                {% endif %}
+            </div>
         {% endfor %}
     </div>
 {% endblock %}
 
 {% block mainSectionBottom %}
-
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('upload_photos') }}" class="btn btn-outline-info btn-sm">{{ 'upload_photos'|trans }}</a>
+    {% endif %}
 {% endblock %}
