@@ -1,0 +1,12 @@
+<div class="position-relative">
+    <div class="text-content">
+        {{ text.content|raw }}
+    </div>
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="position-absolute top-right">
+            <button class="btn btn-info text-white" {{ stimulus_action('text', 'showForm') }}>
+                <i class="fas fa-pen"></i>
+            </button>
+        </div>
+    {% endif %}
+</div>

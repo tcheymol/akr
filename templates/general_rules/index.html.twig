@@ -6,11 +6,11 @@
     <div class="row gx-4 gx-lg-5 pb-4 h-100 align-items-center justify-content-center text-start text-white">
         <h2 class="text-center font-weight-bold">{{ 'important_information'|trans }}</h2>
         <hr class="divider"/>
-        <p>{{ importantNotices|raw }}</p>
+        {{ include('components/_text.html.twig', {text: importantNotices}) }}
         <hr class="divider"/>
         <h2 class="text-center font-weight-bold">{{ 'general_rule_frame'|trans }}</h2>
         <hr class="divider"/>
-        <p>{{ generalFrameContent|raw }}</p>
+        {{ include('components/_text.html.twig', {text: generalFrameContent}) }}
     </div>
 {% endblock %}
 

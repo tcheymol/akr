@@ -5,11 +5,11 @@
 {% block mainSection %}
     <h2 class="text-center font-weight-bold">{{ 'spots'|trans }}</h2>
     <hr class="divider"/>
-    {{ spotsIntro|raw }}
+    {{ include('components/_text.html.twig', {text: spotsIntro}) }}
     <hr class="divider"/>
     <h2 class="text-center font-weight-bold">{{ 'general_spots_rules'|trans }}</h2>
     <hr class="divider"/>
-    {{ spotsRecommendations|raw }}
+    {{ include('components/_text.html.twig', {text: spotsRecommendations}) }}
 {% endblock %}
 
 {% block body %}

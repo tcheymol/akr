@@ -12,10 +12,10 @@
             <img class="img-fluid img-thumbnail" alt="trade_winds" src="{{ asset('build/img/trade_winds.gif') }}"/>
         </div>
         <div class="col-12 col-sm-6 my-5">
-            <span>{{ intro1|trans|raw }}</span>
+            {{ include('components/_text.html.twig', {text: intro1}) }}
             <br/>
             <hr class="divider"/>
-            <span>{{ intro2|trans|raw }}</span>
+            {{ include('components/_text.html.twig', {text: intro2}) }}
         </div>
     </div>
 {% endblock %}
@@ -25,7 +25,7 @@
     <div class="container p-4 p-lg-5">
         <div class="row">
             <div class="col-12 col-lg-8 offset-lg-2">
-                <span>{{ body|trans|raw }}</span>
+                {{ include('components/_text.html.twig', {text: body}) }}
             </div>
             <div class="col-12 col-lg-8 offset-lg-2 mt-4 d-flex justify-content-center">
                 <a class="btn btn-primary btn-xl" href="{{ path('spots') }}">{{ 'see_all_spots' |trans }}</a>

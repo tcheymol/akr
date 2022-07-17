@@ -1,0 +1,8 @@
+{% if text %}
+<div
+        {{ stimulus_controller('text', {'updateUrl': path('update_text', {id: text.id})}) }}
+        {{ stimulus_target('text', 'container') }}
+>
+    {{ include('components/_text_content.html.twig', { text }) }}
+</div>
+    {% endif %}

@@ -11,7 +11,7 @@
                 {% endif %}
                 <hr class="divider divider-{{ textColor }}"/>
                 <div class="row text-{{ textColor }}">
-                    {{ content|raw }}
+                    {{ include('components/_text.html.twig', {text: content}) }}
                 </div>
             </div>
         </div>

@@ -6,7 +6,9 @@
         <hr class="divider"/>
     </div>
     <div class="col-lg-8 align-self-baseline">
-        <div class="text-white-75 my-5">{{ landingText|raw }}</div>
+        <div class="text-white-75 my-5">
+            {{ include('components/_text.html.twig', {text: landingText}) }}
+        </div>
     </div>
 {% endblock %}
 
