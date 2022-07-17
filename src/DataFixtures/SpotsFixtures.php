@@ -106,7 +106,8 @@ class SpotsFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         foreach (self::SPOTS as $spot) {
-            $spot = (new Spot($spot['name']))
+            $spot = (new Spot())
+                ->setName($spot['name'])
                 ->setSubtitle($spot['subtitle'])
                 ->setPosition($spot['position'])
                 ->setAccess($spot['access'])

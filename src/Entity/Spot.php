@@ -47,11 +47,10 @@ class Spot
     private ?string $picture = null;
 
     #[ORM\Column(type: 'integer', nullable: true)]
-    private $windguruId;
+    private ?int $windguruId = null;
 
-    public function __construct(string $name)
+    public function __construct()
     {
-        $this->name = $name;
     }
 
     public function getId(): ?int
