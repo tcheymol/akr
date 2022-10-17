@@ -15,8 +15,8 @@
 
 ```postgresql
 CREATE USER akr WITH PASSWORD 'akr';
-CREATE DATABASE akr;
-GRANT ALL PRIVILEGES ON DATABASE "akr" to akr;
+CREATE DATABASE akr; GRANT ALL PRIVILEGES ON DATABASE "akr" to akr;
+CREATE DATABASE akr_test; GRANT ALL PRIVILEGES ON DATABASE "akr_test" to akr;
 ```
 
 * Run migrations
