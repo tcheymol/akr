@@ -8,7 +8,7 @@ use Doctrine\Persistence\ObjectManager;
 
 class SpotsFixtures extends Fixture
 {
-    const SPOTS = [
+    final public const SPOTS = [
         [
             'name' => "la saline - trou d'eau",
             'subtitle' => null,
