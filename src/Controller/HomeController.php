@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
-use function sprintf;
+
 use function unlink;
 
 class HomeController extends AbstractController
@@ -38,7 +38,7 @@ class HomeController extends AbstractController
         return $this->render('spots/index.html.twig', [
             'spotsIntro' => $texts->getByKey('spots_intro'),
             'spotsRecommendations' => $texts->getByKey('spots_recommendations'),
-            'spots' => $repository->findAll()
+            'spots' => $repository->findAll(),
         ]);
     }
 
@@ -99,12 +99,13 @@ class HomeController extends AbstractController
             $newFilename = $slugger->slug($originalFilename).'-'.uniqid().'.'.$file->guessExtension();
             try {
                 $info = getimagesize($file);
-                list($x, $y) = $info;
                 $image = (new Image())
                     ->setFileName($newFilename)
-                    ->setOriginalName($originalFilename)
-                    ->setHeight($y)
-                    ->setWidth($x);
+                    ->setOriginalName($originalFilename);
+                if (false !== $info) {
+                    [$x, $y] = $info;
+                    $image->setHeight($y)->setWidth($x);
+                }
                 $em->persist($image);
                 $em->flush();
                 $file->move('images', $newFilename);

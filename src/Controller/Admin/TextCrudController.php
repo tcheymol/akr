@@ -25,7 +25,7 @@ class TextCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield TextField::new('key')->setDisabled($pageName !== Action::NEW);
+        yield TextField::new('key')->setDisabled(Action::NEW !== $pageName);
         yield TextField::new('location');
         yield TextEditorField::new('content');
     }

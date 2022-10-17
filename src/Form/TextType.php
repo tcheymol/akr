@@ -16,7 +16,7 @@ class TextType extends AbstractType
             'attr' => [
                 'data-controller' => 'ckeditor',
                 'data-ckeditor-target' => 'container',
-            ]
+            ],
         ]);
     }
 

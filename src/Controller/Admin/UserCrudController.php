@@ -13,12 +13,8 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserCrudController extends AbstractCrudController
 {
-
-    private UserPasswordHasherInterface $hasher;
-
-    public function __construct(UserPasswordHasherInterface $hasher)
+    public function __construct(private readonly UserPasswordHasherInterface $hasher)
     {
-        $this->hasher = $hasher;
     }
 
     public static function getEntityFqcn(): string
@@ -36,21 +32,21 @@ class UserCrudController extends AbstractCrudController
         ];
     }
 
-    public function persistEntity(EntityManagerInterface $entityManager, mixed $user): void
+    public function persistEntity(EntityManagerInterface $entityManager, mixed $entityInstance): void
     {
-        if ($password = $user->getPassword()) {
-            $user->setPassword($this->hasher->hashPassword($user, $password));
+        if ($entityInstance instanceof User && $password = $entityInstance->getPassword()) {
+            $entityInstance->setPassword($this->hasher->hashPassword($entityInstance, $password));
         }
 
-        parent::persistEntity($entityManager, $user);
+        parent::persistEntity($entityManager, $entityInstance);
     }
 
-    public function updateEntity(EntityManagerInterface $entityManager, mixed $user): void
+    public function updateEntity(EntityManagerInterface $entityManager, mixed $entityInstance): void
     {
-        if ($password = $user->getPassword()) {
-            $user->setPassword($this->hasher->hashPassword($user, $password));
+        if ($entityInstance instanceof User && $password = $entityInstance->getPassword()) {
+            $entityInstance->setPassword($this->hasher->hashPassword($entityInstance, $password));
         }
 
-        parent::updateEntity($entityManager, $user);
+        parent::updateEntity($entityManager, $entityInstance);
     }
 }
