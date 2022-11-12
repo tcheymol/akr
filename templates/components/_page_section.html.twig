@@ -1,0 +1,10 @@
+{% set color = color is defined ? color : 'primary' %}
+{% set textColor = color is same as 'primary' ? 'light' : 'primary' %}
+
+<section class="page-section bg-{{ color }}" id="{{ section.name }}" data-turbolinks="false">
+    <div class="container px-4 px-lg-5">
+        {{ include('components/_section.html.twig', {section}) }}
+        {{ include('components/_section_button.html.twig', {section, isLast, color: textColor}) }}
+    </div>
+</section>
+<div id="{{ section.name }}"></div>

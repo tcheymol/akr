@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Image;
+use App\Entity\Page;
+use App\Entity\Section;
 use App\Entity\Spot;
 use App\Entity\Text;
 use App\Entity\User;
@@ -35,6 +37,8 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToCrud('spots', 'fas fa-umbrella-beach', Spot::class);
+        yield MenuItem::linkToCrud('pages', 'fas fa-scroll', Page::class);
+        yield MenuItem::linkToCrud('sections', 'fas fa-bars', Section::class);
         yield MenuItem::linkToCrud('texts', 'fas fa-pencil', Text::class);
         yield MenuItem::linkToCrud('users', 'fas fa-users', User::class);
         yield MenuItem::linkToCrud('gallery', 'fas fa-image', Image::class);
