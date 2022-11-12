@@ -1,0 +1,5 @@
+{% if isLast %}
+    {{ include('components/back_to_top_button.html.twig', {color}) }}
+{% else %}
+    {{ include('components/next_section_button.html.twig', {href: section.name, color}) }}
+{% endif %}

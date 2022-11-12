@@ -8,6 +8,7 @@ use App\Entity\Text;
 use App\Form\TextType;
 use App\Manager\TextManager;
 use App\Repository\ImageRepository;
+use App\Repository\PageRepository;
 use App\Repository\SpotRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -16,14 +17,21 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-use function unlink;
-
 class HomeController extends AbstractController
 {
+    public function header(RequestStack $stack, PageRepository $pageRepository): Response
+    {
+        return $this->render('components/_header.html.twig', [
+            'pages' => $pageRepository->findAll(),
+            'mainRequest' => $stack->getMainRequest(),
+        ]);
+    }
+
     #[Route('/', name: 'app_home', methods: ['GET'])]
     public function index(TextManager $texts): Response
     {
@@ -47,6 +55,14 @@ class HomeController extends AbstractController
     {
         return $this->render('spots/show.html.twig', [
             'spot' => $spot,
+        ]);
+    }
+
+    #[Route('/page/{slug}', name: 'page', methods: ['GET'])]
+    public function licences(string $slug, PageRepository $pageRepository): Response
+    {
+        return $this->render('page/show.html.twig', [
+            'page' => $pageRepository->findOneBySlug($slug),
         ]);
     }
 

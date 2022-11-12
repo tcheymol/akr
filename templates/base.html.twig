@@ -33,7 +33,7 @@
 </head>
 <body id="page-top">
 {% block header %}
-    {{ include('components/header.html.twig') }}
+    {{ render(controller('App\\Controller\\HomeController::header')) }}
 {% endblock %}
 <header class="masthead"
         style="background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/home.gif') }});">

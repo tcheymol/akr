@@ -6,6 +6,7 @@ use App\Entity\Text;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -26,7 +27,9 @@ class TextCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield TextField::new('key')->setDisabled(Action::NEW !== $pageName);
-        yield TextField::new('location');
+        yield TextField::new('location')->setLabel('location');
+        yield TextField::new('title')->setLabel('title');
+        yield AssociationField::new('section');
         yield TextEditorField::new('content');
     }
 }

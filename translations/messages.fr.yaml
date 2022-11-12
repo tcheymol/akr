@@ -11,7 +11,7 @@ description: Descriptif
 discover_association: Découvrir L'association
 email: Email
 events: Évènements
-gallery: Gallerie
+gallery: Galerie
 general: Généralités
 general_rule_frame: Cadre réglementaire général
 general_rules: Règlementation générale
@@ -21,20 +21,24 @@ important_information: Informations importantes
 know_more: En savoir plus
 lessons: Cours
 licences: Adhésions/Licences
+location: Position
 login: Connexion
 logout: Déconnexion
 main_title: Attitude Kite Réunion
 members: Membres
 meteo: Météo
 more: À savoir
+name: Nom
 navigate: Naviguer
 navigate_reunion: Naviguer à la Réunion
 office: Bureau
 orientation: Orientation
+pages: Pages
 password: Mot de passe
 pitch: Présentation
 position: Situation
 section_in_progress: <div class="text-center"><br/>Cette section est en cours de construction.<br/><br/><h1>🚧👷‍♀️🚧</h1><br/>Elle sera actualisée sous peu, veuillez réessayer dans quelques jours.<br/></div>
+sections: Sections
 security: Info sécurité
 see_all_spots: Voir tous les spots
 spot_1: Le spot de Trou d'eau
@@ -42,6 +46,7 @@ spot_2: Le spot de la Gendarmerie
 spots: Les spots
 texts: Textes
 the_association: L'association
+title: Titre
 upload_photos: Ajouter des photos
 users: Utilisateurs
 water: Plan d’eau
