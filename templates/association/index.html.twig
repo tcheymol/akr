@@ -10,10 +10,13 @@
 
 {% block body %}
     {{ include('components/basic_section.html.twig', {
-        'title': '',
+        'title': 'associationBody',
         'content': associationBody,
         'color': 'light',
         'isLast': false
     }) }}
 {% endblock %}
 
+{% block mainSectionBottom %}
+    {{ include('components/next_section_button.html.twig', {href: 'associationBody'}) }}
+{% endblock %}

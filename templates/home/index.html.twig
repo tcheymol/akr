@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block mainSection %}
-    <div class="col-lg-8 align-self-end">
-        <h1 class="text-white font-weight-bold text-center">{{ 'main_title'|trans }}</h1>
-        <hr class="divider"/>
-    </div>
-    <div class="col-lg-8 align-self-baseline">
-        <div class="text-white-75 my-5">
-            {{ include('components/_text.html.twig', {text: landingText}) }}
+    <div class="col-12">
+        <div class="row d-flex justify-content-between">
+            <div class="col-lg-8 offset-lg-2 align-self-end">
+                <h1 class="text-white font-weight-bold text-center">{{ 'main_title'|trans }}</h1>
+                <hr class="divider"/>
+            </div>
+            <div class="col-lg-8 offset-lg-2 align-self-baseline">
+                <div class="text-white-75 my-5">
+                    {{ include('components/_text.html.twig', {text: landingText}) }}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

@@ -1,0 +1,77 @@
+$primary: #F4623A;
+
+$theme-colors: (
+        "primary": $primary,
+  //"secondary": $secondary,
+  //"success": $success,
+  //"info": $info,
+  //"warning": $warning,
+  //"danger": $danger,
+  //"light": $light,
+  //"dark": $dark
+);
+
+@import "bootstrap/scss/bootstrap";
+@import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
+@import '@fortawesome/fontawesome-free/scss/solid.scss';
+@import 'bootstrap/scss/bootstrap.scss';
+
+body {
+  font-family: "Merriweather Sans";
+}
+
+.text-content {
+  font-size: 1.15rem;
+}
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant($value, $value);
+    color: white !important;
+    font-weight: bolder !important;
+  }
+
+  .btn-light {
+    @include button-variant($value, $value);
+    background-color: whitesmoke !important;
+  }
+}
+
+.top-right {
+  top: -1em;
+  right: -1em;
+  z-index: 2;
+}
+
+.masthead {
+  background-size: cover !important;
+  padding-top: 122px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+hr {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  height: 4px;
+  width: 100px !important;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background: $primary;
+  border: none;
+  opacity: 1;
+
+  &.hr-light {
+    background-color: whitesmoke;
+  }
+}
+
+.navbar.navbar-shrink {
+  background: white !important;
+
+  span {
+    color: $primary !important;
+  }
+}

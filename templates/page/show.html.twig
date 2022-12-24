@@ -3,7 +3,9 @@
 {% block title %}{{ page.name }}{% endblock %}
 
 {% block mainSection %}
-    {{ include('components/_section.html.twig', {section: page.sections.first}) }}
+    <div class="col-lg-12">
+        {{ include('components/_section.html.twig', {section: page.sections.first}) }}
+    </div>
 {% endblock %}
 
 {% block body %}
@@ -17,8 +19,8 @@
 {% endblock %}
 
 {% block mainSectionBottom %}
-    {% if page.sections.count >= 2 %}
+{#    {% if page.sections.count >= 1 %}#}
         {% set section = page.sections|slice(1, 1)[0] %}
         {{ include('components/next_section_button.html.twig', {href: section.name}) }}
-    {% endif %}
+{#    {% endif %}#}
 {% endblock %}
