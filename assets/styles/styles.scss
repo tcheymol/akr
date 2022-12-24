@@ -17,7 +17,7 @@ $theme-colors: (
 @import 'bootstrap/scss/bootstrap.scss';
 
 body {
-  font-family: "Merriweather Sans";
+  font-family: "Merriweather Sans", serif;
 }
 
 .text-content {
@@ -74,4 +74,8 @@ hr {
   span {
     color: $primary !important;
   }
+}
+
+.ck.ck-editor__main > .ck-editor__editable {
+  background: transparent !important;
 }

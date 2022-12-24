@@ -1,0 +1,8 @@
+<h2 class="text-{{ textColor }} mt-0">{{ title }}</h2>
+{% if subtitle is defined %}
+    <h6 class="text-{{ textColor }} mt-0">{{ subtitle }}</h6>
+{% endif %}
+<hr class="divider divider-{{ textColor }}"/>
+<div class="row text-{{ textColor }}">
+    {{ include('components/_text.html.twig', {text: content}) }}
+</div>
