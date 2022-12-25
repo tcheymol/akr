@@ -5,14 +5,13 @@
     { href: path('meteo'), label: 'meteo'|trans, icon: 'cloud', path: 'meteo' },
     { href: path('spots'), label: 'spots'|trans, icon: 'umbrella-beach', path: 'spots' },
     { href: path('gallery'), label: 'gallery'|trans, icon: 'camera', path: 'gallery' },
-    { href: path('general_rules'), label: ''|trans, icon: 'scroll', path: 'general-rules' },
 ]) %}
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3 fw-bolder" id="mainNav">
     <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="{{ path('app_home') }}">
-            <img src="{{ asset('logo.png') }}" class="img-fluid" style="width: 80px" alt="logo">
-            <span class="d-none d-sm-inline">{{ 'main_title'|trans }}</span>
-            <span class="d-sm-none">{{ 'main_title_short'|trans }}</span>
+            <img src="{{ asset('logo.png') }}" class="navbar-logo" alt="logo">
+            <span class="d-none d-sm-inline d-lg-none d-xl-inline">{{ 'main_title'|trans }}</span>
+            <span class="d-inline d-sm-none d-lg-inline d-xl-none">{{ 'main_title_short'|trans }}</span>
         </a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"

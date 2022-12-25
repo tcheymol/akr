@@ -69,6 +69,21 @@ hr {
 }
 
 .navbar {
+  .navbar-logo {
+    width: 30px;
+    @include media-breakpoint-up(md) {
+      width: 50px;
+    }
+    @include media-breakpoint-up(lg) {
+      width: 80px;
+    }
+
+  }
+
+  @include media-breakpoint-down(md) {
+    background: $primary !important;
+  }
+
 
   &.navbar-shrink {
     background: white !important;
