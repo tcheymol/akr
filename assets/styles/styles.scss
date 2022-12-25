@@ -68,11 +68,18 @@ hr {
   }
 }
 
-.navbar.navbar-shrink {
-  background: white !important;
+.navbar {
 
-  span {
-    color: $primary !important;
+  &.navbar-shrink {
+    background: white !important;
+
+    .navbar-toggler {
+      background: $primary !important;
+    }
+
+    span, i {
+      color: $primary !important;
+    }
   }
 }
 

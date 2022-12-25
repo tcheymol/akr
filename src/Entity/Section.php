@@ -26,6 +26,9 @@ class Section implements \Stringable
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $name = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $position = null;
+
     public function __construct()
     {
         $this->texts = new ArrayCollection();
@@ -89,6 +92,18 @@ class Section implements \Stringable
     public function setName(?string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?int $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }

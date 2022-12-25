@@ -28,6 +28,9 @@ class Text
     #[ORM\ManyToOne(inversedBy: 'texts')]
     private ?Section $section = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $position = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +92,18 @@ class Text
     public function setSection(?Section $section): self
     {
         $this->section = $section;
+
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?int $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }

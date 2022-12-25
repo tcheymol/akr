@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Page;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class PageCrudController extends AbstractCrudController
@@ -18,6 +19,7 @@ class PageCrudController extends AbstractCrudController
     {
         yield IdField::new('id')->hideOnForm();
         yield TextField::new('name');
+        yield IntegerField::new('position')->setLabel('order');
         yield TextField::new('slug');
     }
 }

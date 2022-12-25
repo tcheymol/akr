@@ -10,6 +10,7 @@ use App\Manager\TextManager;
 use App\Repository\ImageRepository;
 use App\Repository\PageRepository;
 use App\Repository\SpotRepository;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -27,7 +28,7 @@ class HomeController extends AbstractController
     public function header(RequestStack $stack, PageRepository $pageRepository): Response
     {
         return $this->render('components/_header.html.twig', [
-            'pages' => $pageRepository->findAll(),
+            'pages' => $pageRepository->findBy([], ['position' => Criteria::ASC]),
             'mainRequest' => $stack->getMainRequest(),
         ]);
     }

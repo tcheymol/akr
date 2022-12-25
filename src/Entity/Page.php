@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\PageRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PageRepository::class)]
@@ -20,10 +21,14 @@ class Page implements \Stringable
 
     /** @var Collection<int, Section> $sections */
     #[ORM\OneToMany(mappedBy: 'page', targetEntity: Section::class)]
+    #[ORM\OrderBy(['position' => Criteria::ASC])]
     private Collection $sections;
 
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $position = null;
 
     public function __construct()
     {
@@ -88,6 +93,18 @@ class Page implements \Stringable
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(?int $position): self
+    {
+        $this->position = $position;
 
         return $this;
     }
