@@ -6,17 +6,15 @@
  */
 
 import {ScrollSpy} from 'bootstrap';
-import '@fortawesome/fontawesome-free';
-import '@fortawesome/fontawesome-free/scss/fontawesome.scss';
-import '@fortawesome/fontawesome-free/scss/solid.scss';
-import 'bootstrap/scss/bootstrap.scss';
 
 // start the Stimulus application
 import './bootstrap';
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
-import './styles/custom.scss';
+import './styles/styles.scss';
+
+
+import '@fortawesome/fontawesome-free';
 
 // Smooth scroll
 window.addEventListener('DOMContentLoaded', event => {

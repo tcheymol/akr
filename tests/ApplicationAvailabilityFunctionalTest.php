@@ -35,18 +35,17 @@ class ApplicationAvailabilityFunctionalTest extends WebTestCase
 
     public function successfulUrlProvider(): \Generator
     {
-        yield ['/'];
         yield ['/login'];
         yield ['/spots'];
         yield ['/general-rules'];
-        yield ['/association'];
         yield ['/gallery'];
         yield ['/meteo'];
-        yield ['/upload-photos'];
+//        yield ['/upload-photos'];
     }
 
     public function redirectUrlProvider(): \Generator
     {
+        yield ['/'];
         yield ['/logout'];
     }
 

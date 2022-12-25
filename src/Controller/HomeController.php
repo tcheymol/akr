@@ -11,7 +11,6 @@ use App\Repository\ImageRepository;
 use App\Repository\PageRepository;
 use App\Repository\SpotRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -20,6 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class HomeController extends AbstractController
@@ -33,10 +33,16 @@ class HomeController extends AbstractController
     }
 
     #[Route('/', name: 'app_home', methods: ['GET'])]
-    public function index(TextManager $texts): Response
+    public function index(): Response
     {
-        return $this->render('home/index.html.twig', [
-            'landingText' => $texts->getByKey('landing'),
+        return $this->redirectToRoute('page', ['slug' => 'accueil']);
+    }
+
+    #[Route('/page/{slug}', name: 'page', methods: ['GET'])]
+    public function licences(string $slug, PageRepository $pageRepository): Response
+    {
+        return $this->render('page/show.html.twig', [
+            'page' => $pageRepository->findOneBySlug($slug),
         ]);
     }
 
@@ -53,17 +59,7 @@ class HomeController extends AbstractController
     #[Route('/spots/{id}', name: 'spot', methods: ['GET'])]
     public function spot(Spot $spot): Response
     {
-        return $this->render('spots/show.html.twig', [
-            'spot' => $spot,
-        ]);
-    }
-
-    #[Route('/page/{slug}', name: 'page', methods: ['GET'])]
-    public function licences(string $slug, PageRepository $pageRepository): Response
-    {
-        return $this->render('page/show.html.twig', [
-            'page' => $pageRepository->findOneBySlug($slug),
-        ]);
+        return $this->render('spots/show.html.twig', ['spot' => $spot]);
     }
 
     #[Route('/general-rules', name: 'general_rules', methods: ['GET'])]
@@ -72,15 +68,6 @@ class HomeController extends AbstractController
         return $this->render('general_rules/index.html.twig', [
             'importantNotices' => $texts->getByKey('important_notices'),
             'generalFrameContent' => $texts->getByKey('general_frame'),
-        ]);
-    }
-
-    #[Route('/association', name: 'association', methods: ['GET'])]
-    public function association(TextManager $texts): Response
-    {
-        return $this->render('association/index.html.twig', [
-            'associationIntro' => $texts->getByKey('association_intro'),
-            'associationBody' => $texts->getByKey('association_body'),
         ]);
     }
 
@@ -102,6 +89,7 @@ class HomeController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/upload-photos', name: 'upload_photos', methods: ['GET', 'POST'])]
     public function uploadPhotos(Request $request, SluggerInterface $slugger, EntityManagerInterface $em): Response
     {
@@ -147,7 +135,7 @@ class HomeController extends AbstractController
             return $this->render('components/_text_content.html.twig', ['text' => $text]);
         }
 
-        return $this->renderForm('components/_text_form.html.twig', ['form' => $form]);
+        return $this->render('components/_text_form.html.twig', ['form' => $form]);
     }
 
     #[IsGranted('ROLE_ADMIN')]

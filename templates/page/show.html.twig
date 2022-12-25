@@ -3,22 +3,18 @@
 {% block title %}{{ page.name }}{% endblock %}
 
 {% block mainSection %}
-    {{ include('components/_section.html.twig', {section: page.sections.first}) }}
+    {{ include('components/_section_content.html.twig', {section: page.sections.first}) }}
 {% endblock %}
 
 {% block body %}
     {% for section in page.sections|slice(1, page.sections.count) %}
-        {{ include('components/_page_section.html.twig', {
-            section,
-            color: loop.index is odd,
-            isLast: loop.last
-        }) }}
+        {{ include('components/_page_section.html.twig', {section,loop}) }}
     {% endfor %}
 {% endblock %}
 
 {% block mainSectionBottom %}
-    {% if page.sections.count >= 2 %}
-        {% set section = page.sections|slice(1, 1)[0] %}
-        {{ include('components/next_section_button.html.twig', {href: section.name}) }}
+    {% if page.sections.count >= 1 %}
+        {% set section = page.sections.first %}
+        {{ include('components/_next_section_button.html.twig', {href: section.name}) }}
     {% endif %}
 {% endblock %}

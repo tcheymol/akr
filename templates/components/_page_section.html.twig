@@ -1,10 +1,15 @@
-{% set color = color is defined ? color : 'primary' %}
+{% set color = loop.index is odd ? 'primary' : 'light' %}
 {% set textColor = color is same as 'primary' ? 'light' : 'primary' %}
+{% set cssTextColor = color is same as 'primary' ? 'white' : 'black' %}
 
 <section class="page-section bg-{{ color }}" id="{{ section.name }}" data-turbolinks="false">
-    <div class="container px-4 px-lg-5">
-        {{ include('components/_section.html.twig', {section}) }}
-        {{ include('components/_section_button.html.twig', {section, isLast, color: textColor}) }}
+    <div class="min-vh-100 container p-4 px-lg-5 text-{{ color is same as 'primary' ? 'white' : 'black' }}">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 justify-content-center">
+                {{ include('components/_section_content.html.twig', {section, textColor: cssTextColor}) }}
+                {{ include('components/_section_button.html.twig', {href: section.name, isLast: loop.last, color: textColor}) }}
+            </div>
+        </div>
     </div>
 </section>
 <div id="{{ section.name }}"></div>
