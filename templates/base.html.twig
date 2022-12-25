@@ -35,24 +35,29 @@
 {% block header %}
     {{ render(controller('App\\Controller\\HomeController::header')) }}
 {% endblock %}
-<div class="masthead"
-     loop=infinite
-     style="background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/bg.gif') }});">
+<section class="masthead"
+         style="background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/bg.gif') }});">
     <div class="container px-4 px-lg-5 h-100 pb-4">
         <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-white">
             <div id="main-section">
-                {% block mainSection %}
-                {% endblock %}
+                <div class="col-12">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-lg-8 offset-lg-2 align-self-end">
+                            {% block mainSection %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
             </div>
             {% block mainSectionBottom %}
             {% endblock %}
         </div>
     </div>
-</div>
+</section>
 {% block body %}
 {% endblock %}
 {% block footer %}
-    {{ include('components/footer.html.twig') }}
+    {{ include('components/_footer.html.twig') }}
 {% endblock %}
 </body>
 </html>

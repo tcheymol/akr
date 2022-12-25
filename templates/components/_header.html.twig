@@ -1,8 +1,7 @@
 {% set links = pages|map(p =>
-    { href: path('page', {slug: p.slug}), label: p.slug|trans, icon: 'id-card', path: p.slug },
+    { href: path('page', {slug: p.slug}), label: p.name, icon: null, path: p.slug },
 ) %}
 {% set links = links|merge([
-    { href: path('association'), label: 'the_association'|trans, icon: 'people-group', path: 'association' },
     { href: path('meteo'), label: 'meteo'|trans, icon: 'cloud', path: 'meteo' },
     { href: path('spots'), label: 'spots'|trans, icon: 'umbrella-beach', path: 'spots' },
     { href: path('gallery'), label: 'gallery'|trans, icon: 'camera', path: 'gallery' },
@@ -26,7 +25,9 @@
                         <a class="nav-link {{ isActive ? 'active text-decoration-underline  ' : '' }}"
                            href="{{ link.href }}"
                         >
-                            <i class="me-2 fas fa-{{ link.icon }}"></i>
+                            {% if link.icon %}
+                                <i class="me-2 fas fa-{{ link.icon }}"></i>
+                            {% endif %}
                             <span>
                                 {{ link.label }}
                             </span>

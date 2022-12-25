@@ -33,11 +33,9 @@ class HomeController extends AbstractController
     }
 
     #[Route('/', name: 'app_home', methods: ['GET'])]
-    public function index(TextManager $texts): Response
+    public function index(): Response
     {
-        return $this->render('home/index.html.twig', [
-            'landingText' => $texts->getByKey('landing'),
-        ]);
+        return $this->redirectToRoute('page', ['slug' => 'accueil']);
     }
 
     #[Route('/page/{slug}', name: 'page', methods: ['GET'])]
@@ -70,15 +68,6 @@ class HomeController extends AbstractController
         return $this->render('general_rules/index.html.twig', [
             'importantNotices' => $texts->getByKey('important_notices'),
             'generalFrameContent' => $texts->getByKey('general_frame'),
-        ]);
-    }
-
-    #[Route('/association', name: 'association', methods: ['GET'])]
-    public function association(TextManager $texts): Response
-    {
-        return $this->render('association/index.html.twig', [
-            'associationIntro' => $texts->getByKey('association_intro'),
-            'associationBody' => $texts->getByKey('association_body'),
         ]);
     }
 

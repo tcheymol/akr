@@ -1,8 +1,7 @@
-<h2 class="text-{{ textColor }} mt-0">{{ title }}</h2>
-{% if subtitle is defined %}
-    <h6 class="text-{{ textColor }} mt-0">{{ subtitle }}</h6>
-{% endif %}
-<hr class="divider divider-{{ textColor }}"/>
-<div class="row text-{{ textColor }}">
-    {{ include('components/_text.html.twig', {text: content}) }}
-</div>
+<h1 class="text-center font-weight-bold">{{ section.name }}</h1>
+{% for text in section.texts %}
+    <h2 class="text-center font-weight-bold">{{ text.title }}</h2>
+    <hr class="divider" {% if textColor is defined %}style="background-color: {{ textColor }}"{% endif %}/>
+    {{ include('components/_text.html.twig', {text}) }}
+{% endfor %}
+<div id="{{ section.name }}"></div>
