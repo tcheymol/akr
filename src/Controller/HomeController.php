@@ -47,11 +47,11 @@ class HomeController extends AbstractController
     }
 
     #[Route('/spots', name: 'spots', methods: ['GET'])]
-    public function spots(SpotRepository $repository, TextManager $texts): Response
+    public function spots(SpotRepository $repository, SectionRepository $sectionRepository, TextManager $texts): Response
     {
         return $this->render('spots/index.html.twig', [
             'spotsIntro' => $texts->getByKey('spots_intro'),
-            'spotsRecommendations' => $texts->getByKey('spots_recommendations'),
+            'spotsRecommendationsSection' => $sectionRepository->findOneBy(['name' => "Recommandations générales à l'ensemble des spots de l'île"]),
             'spots' => $repository->findAll(),
         ]);
     }
@@ -99,7 +99,7 @@ class HomeController extends AbstractController
         /** @var UploadedFile $file */
         foreach ($request->files as $file) {
             $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-            $newFilename = $slugger->slug($originalFilename) . '-' . uniqid() . '.' . $file->guessExtension();
+            $newFilename = $slugger->slug($originalFilename).'-'.uniqid().'.'.$file->guessExtension();
             try {
                 $info = getimagesize($file);
                 $image = (new Image())

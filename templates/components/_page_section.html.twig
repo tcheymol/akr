@@ -2,19 +2,21 @@
 {% set accentColor = index is odd ? 'primary' : 'light' %}
 {% set textColor = index is odd and index >= 2 ? 'primary' : 'white' %}
 
-<section
-        class="page-section bg-{{ bgColor }} w-100 {{ index == 1 ? 'masthead' : '' }} text-{{ textColor}} position-relative"
-        {% if index == 1 %}
-            style="background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/bg.gif') }});"
-        {% endif %}
->
-    <div class="min-vh-100 container p-4 px-lg-5">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2 justify-content-center">
-                {{ include('components/_section_content.html.twig', {section, accentColor}) }}
-                {{ include('components/_section_button.html.twig', {href: section.name, isLast, color: accentColor}) }}
+{% if section %}
+    <section
+            class="page-section bg-{{ bgColor }} w-100 {{ index == 1 ? 'masthead' : '' }} text-{{ textColor }} position-relative"
+            {% if index == 1 %}
+                style="background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/bg.gif') }});"
+            {% endif %}
+    >
+        <div class="min-vh-100 container p-4 px-lg-5">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 justify-content-center">
+                    {{ include('components/_section_content.html.twig', {section, accentColor}) }}
+                    {{ include('components/_section_button.html.twig', {href: section.name, isLast, color: accentColor}) }}
+                </div>
             </div>
         </div>
-    </div>
-    <div id="{{ section.name }}" class="position-absolute" style="bottom: 0;width: 1px; height: 1px"></div>
-</section>
+        <div id="{{ section.name }}" class="position-absolute" style="bottom: 0;width: 1px; height: 1px"></div>
+    </section>
+{% endif %}

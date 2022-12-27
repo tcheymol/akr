@@ -3,32 +3,40 @@
 {% block title %}{{ 'gallery'|trans }}{% endblock %}
 
 {% block body %}
-    <div class="pswp-gallery pswp-gallery--single-column"
-         id="my-gallery" {{ stimulus_controller('gallery') }}>
-        {% for image in images %}
-            <div class="position-relative d-inline-block">
-                <a href="{{ image.url }}"
-                   data-pswp-srcset
-                   data-pswp-width="{{ image.width ?? 500 }}"
-                   data-pswp-height="{{ image.height ?? 500 }}"
-                   target="_blank">
-                    <img src="{{ image.url }}" alt="" style="max-width: 200px;"/>
-                </a>
-                {% if is_granted('ROLE_ADMIN') %}
-                    <button class="position-absolute top-right btn btn-danger text-white"
-                            {{ stimulus_controller('swal', {
-                                'confirmUrl': path('remove_image', {'id': image.id}),
-                                'text': 'are_you_sure_delete'|trans
-                            }) }}
-                            {{ stimulus_action('swal', 'warn') }}
-                    >
-                        <i class="fas fa-trash"></i>
-                    </button>
-                {% endif %}
+    <section
+            class="page-section  w-100 masthead text-white position-relative"
+            style="background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/bg.gif') }});"
+    >
+        <div class="min-vh-100 container p-4 px-lg-5">
+            <div class="pswp-gallery pswp-gallery--single-column"
+                 id="my-gallery" {{ stimulus_controller('gallery') }}>
+                {% for image in images %}
+                    <div class="position-relative d-inline-block">
+                        <a href="{{ image.url }}"
+                           data-pswp-srcset
+                           data-pswp-width="{{ image.width ?? 500 }}"
+                           data-pswp-height="{{ image.height ?? 500 }}"
+                           target="_blank">
+                            <img src="{{ image.url }}" alt="" style="max-width: 200px;"/>
+                        </a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <button class="position-absolute top-right btn btn-danger text-white"
+                                    {{ stimulus_controller('swal', {
+                                        'confirmUrl': path('remove_image', {'id': image.id}),
+                                        'text': 'are_you_sure_delete'|trans
+                                    }) }}
+                                    {{ stimulus_action('swal', 'warn') }}
+                            >
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        {% endif %}
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
-    </div>
-    {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('upload_photos') }}" class="btn btn-outline-info btn-sm">{{ 'upload_photos'|trans }}</a>
-    {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('upload_photos') }}"
+                   class="btn btn-outline-info btn-sm">{{ 'upload_photos'|trans }}</a>
+            {% endif %}
+        </div>
+    </section>
 {% endblock %}

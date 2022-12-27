@@ -14,19 +14,24 @@
 ] %}
 
 {% block body %}
-    <div class="col text-center">
-        <h2 class="text-center font-weight-bold">{{ spot.name }}</h2>
-        {% if spot.subtitle %}
+    <section
+            class="page-section  w-100 masthead text-white position-relative"
+            style="background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/bg.gif') }});"
+    >
+        <div class="min-vh-100 container p-4 px-lg-5">
+            <h2 class="text-center font-weight-bold">{{ spot.name }}</h2>
+            {% if spot.subtitle %}
+                <hr class="divider"/>
+                {{ spot.subtitle|raw }}
+            {% endif %}
             <hr class="divider"/>
-            {{ spot.subtitle|raw }}
-        {% endif %}
-        <hr class="divider"/>
-        {{ include('spots/_wg_widget.html.twig', {'wg_id': spot.windguruId, 'id': spot.id}) }}
-        <hr class="divider"/>
-        <div class="row">
-            {% for spotItem in spotItems %}
-                {{ include('spots/_spot_item.html.twig', {'item': spotItem}) }}
-            {% endfor %}
+            {{ include('spots/_wg_widget.html.twig', {'wg_id': spot.windguruId, 'id': spot.id}) }}
+            <hr class="divider"/>
+            <div class="row">
+                {% for spotItem in spotItems %}
+                    {{ include('spots/_spot_item.html.twig', {'item': spotItem}) }}
+                {% endfor %}
+            </div>
         </div>
-    </div>
+    </section>
 {% endblock %}
