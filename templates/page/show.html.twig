@@ -2,19 +2,12 @@
 
 {% block title %}{{ page.name }}{% endblock %}
 
-{% block mainSection %}
-    {{ include('components/_section_content.html.twig', {section: page.sections.first}) }}
-{% endblock %}
-
 {% block body %}
-    {% for section in page.sections|slice(1, page.sections.count) %}
-        {{ include('components/_page_section.html.twig', {section,loop}) }}
+    {% for section in page.sections %}
+        {{ include('components/_page_section.html.twig', {
+            section,
+            isLast: loop.last,
+            index: loop.index
+        }) }}
     {% endfor %}
-{% endblock %}
-
-{% block mainSectionBottom %}
-    {% if page.sections.count >= 1 %}
-        {% set section = page.sections.first %}
-        {{ include('components/_next_section_button.html.twig', {href: section.name}) }}
-    {% endif %}
 {% endblock %}

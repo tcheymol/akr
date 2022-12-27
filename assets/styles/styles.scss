@@ -46,9 +46,10 @@ body {
 .masthead {
   background-size: cover !important;
   padding-top: 122px;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+
+  div.min-vh-100 {
+    min-height: calc(100vh - 122px) !important;
+  }
 }
 
 hr {
@@ -103,5 +104,9 @@ hr {
 }
 
 .main-section .container {
+  min-height: 100vh !important;
+}
+
+.min-vh-100 {
   min-height: 100vh !important;
 }

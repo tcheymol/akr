@@ -9,6 +9,7 @@ use App\Form\TextType;
 use App\Manager\TextManager;
 use App\Repository\ImageRepository;
 use App\Repository\PageRepository;
+use App\Repository\SectionRepository;
 use App\Repository\SpotRepository;
 use Doctrine\Common\Collections\Criteria;
 use Doctrine\ORM\EntityManagerInterface;
@@ -42,9 +43,7 @@ class HomeController extends AbstractController
     #[Route('/page/{slug}', name: 'page', methods: ['GET'])]
     public function licences(string $slug, PageRepository $pageRepository): Response
     {
-        return $this->render('page/show.html.twig', [
-            'page' => $pageRepository->findOneBySlug($slug),
-        ]);
+        return $this->render('page/show.html.twig', ['page' => $pageRepository->findOneBySlug($slug)]);
     }
 
     #[Route('/spots', name: 'spots', methods: ['GET'])]
@@ -75,18 +74,17 @@ class HomeController extends AbstractController
     #[Route('/gallery', name: 'gallery', methods: ['GET'])]
     public function gallery(ImageRepository $imageRepository): Response
     {
-        return $this->render('gallery/index.html.twig', [
-            'images' => $imageRepository->findAll(),
-        ]);
+        return $this->render('gallery/index.html.twig', ['images' => $imageRepository->findAll()]);
     }
 
     #[Route('/meteo', name: 'meteo', methods: ['GET'])]
-    public function meteo(TextManager $texts): Response
+    public function meteo(TextManager $texts, SectionRepository $sectionRepository): Response
     {
         return $this->render('meteo/index.html.twig', [
             'intro1' => $texts->getByKey('meteo_intro_1'),
             'intro2' => $texts->getByKey('meteo_intro_2'),
-            'body' => $texts->getByKey('meteo_body'),
+            'section' => $sectionRepository->findOneBy(['name' => "Les vents d'Alizée"]),
+            'section2' => $sectionRepository->findOneBy(['name' => 'Quel QUIVER pour la Réunion  ?']),
         ]);
     }
 
@@ -101,7 +99,7 @@ class HomeController extends AbstractController
         /** @var UploadedFile $file */
         foreach ($request->files as $file) {
             $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-            $newFilename = $slugger->slug($originalFilename).'-'.uniqid().'.'.$file->guessExtension();
+            $newFilename = $slugger->slug($originalFilename) . '-' . uniqid() . '.' . $file->guessExtension();
             try {
                 $info = getimagesize($file);
                 $image = (new Image())

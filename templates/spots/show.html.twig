@@ -13,7 +13,7 @@
     {'label': 'security', 'value': spot.security},
 ] %}
 
-{% block mainSection %}
+{% block body %}
     <div class="col text-center">
         <h2 class="text-center font-weight-bold">{{ spot.name }}</h2>
         {% if spot.subtitle %}
@@ -29,9 +29,4 @@
             {% endfor %}
         </div>
     </div>
-{% endblock %}
-
-{% block body %}
-{% endblock %}
-{% block mainSectionBottom %}
 {% endblock %}

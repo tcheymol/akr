@@ -2,7 +2,7 @@
 
 {% block title %}{{ 'gallery'|trans }}{% endblock %}
 
-{% block mainSection %}
+{% block body %}
     <div class="pswp-gallery pswp-gallery--single-column"
          id="my-gallery" {{ stimulus_controller('gallery') }}>
         {% for image in images %}
@@ -28,9 +28,6 @@
             </div>
         {% endfor %}
     </div>
-{% endblock %}
-
-{% block mainSectionBottom %}
     {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('upload_photos') }}" class="btn btn-outline-info btn-sm">{{ 'upload_photos'|trans }}</a>
     {% endif %}

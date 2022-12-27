@@ -2,7 +2,7 @@
 
 {% block title %}{{ 'general_rules'|trans }}{% endblock %}
 
-{% block mainSection %}
+{% block body %}
     <h2 class="text-center font-weight-bold">{{ 'important_information'|trans }}</h2>
     <hr class="divider"/>
     {{ include('components/_text.html.twig', {text: importantNotices}) }}
@@ -10,8 +10,5 @@
     <h2 class="text-center font-weight-bold">{{ 'general_rule_frame'|trans }}</h2>
     <hr class="divider"/>
     {{ include('components/_text.html.twig', {text: generalFrameContent}) }}
-{% endblock %}
-
-{% block mainSectionBottom %}
-    {{ include('components/_back_to_top_button.html.twig') }}
+    {{ include('components/_section_button.html.twig', {color: 'primary', isLast: true}) }}
 {% endblock %}
