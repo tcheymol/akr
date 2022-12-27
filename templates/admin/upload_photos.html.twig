@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block mainSection %}
+{% block body %}
     <div {{ stimulus_controller('dropzone', {
         'url': path('upload_photos')
     }) }}></div>
@@ -8,5 +8,3 @@
             action="/target" class="dropzone"
     ></form>
 {% endblock %}
-
-{% block mainSectionBottom %}{% endblock %}

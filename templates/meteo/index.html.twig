@@ -2,32 +2,28 @@
 
 {% block title %}{{ 'meteo'|trans }}{% endblock %}
 
-{% block mainSection %}
-    <div class="row">
-        <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
-            <img class="img-fluid img-thumbnail" alt="trade_winds" src="{{ asset('build/img/trade_winds.gif') }}"/>
-        </div>
-        <div class="col-12 col-md-6">
-            <h2 class="text-center font-weight-bold">{{ 'meteo'|trans }}</h2>
-            {{ include('components/_text.html.twig', {text: intro1}) }}
-            <hr class="divider"/>
-            {{ include('components/_text.html.twig', {text: intro2}) }}
-        </div>
-    </div>
-{% endblock %}
-
-
 {% block body %}
-    <div class="container p-4 p-lg-5">
-        <div class="row">
-            <div class="col-12 col-lg-8 offset-lg-2">
-                {{ include('components/_text.html.twig', {text: body}) }}
+    <section
+            class="page-section  w-100 masthead text-white position-relative"
+            style="background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/bg.gif') }});"
+    >
+        <div class="min-vh-100 container p-4 px-lg-5">
+            <div class="row">
+                <div class="col-12 col-md-6 d-flex justify-content-center align-items-center">
+                    <img class="img-fluid img-thumbnail" alt="trade_winds"
+                         src="{{ asset('build/img/trade_winds.gif') }}"/>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h2 class="text-center font-weight-bold">{{ 'meteo'|trans }}</h2>
+                    {{ include('components/_text.html.twig', {text: intro1}) }}
+                    <hr class="divider"/>
+                    {{ include('components/_text.html.twig', {text: intro2}) }}
+                </div>
             </div>
-            <div class="col-12 col-lg-8 offset-lg-2 mt-4 d-flex justify-content-center">
-                <a class="btn btn-primary btn-lg" href="{{ path('spots') }}">{{ 'see_all_spots' |trans }}</a>
-            </div>
+            {{ include('components/_section_button.html.twig', {href: 'meteoIndex', isLast: false, color: 'primary'}) }}
         </div>
-    </div>
+        <div id="meteoIndex" class="position-absolute"></div>
+    </section>
+    {{ include('components/_page_section.html.twig', {section, isLast: false, index: 2} ) }}
+    {{ include('components/_page_section.html.twig', {section: section2, isLast: true, index: 3} ) }}
 {% endblock %}
-
-{% block mainSectionBottom %}{% endblock %}

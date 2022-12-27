@@ -1,5 +1,13 @@
-{% if isLast %}
-    {{ include('components/_back_to_top_button.html.twig', {color}) }}
-{% else %}
-    {{ include('components/_next_section_button.html.twig', {href, color}) }}
-{% endif %}
+{% set href = isLast ? 'page-top' : href %}
+{% set anglesDirections = isLast ? 'up' : 'down' %}
+
+<div class="row">
+    <a class="col-12 col-md-6 offset-md-3 mt-4 btn btn-{{ color }} btn-lg rounded-pill fw-bolder"
+       href="#{{ href }}"
+       data-turbo="false"
+    >
+        <i class="fas fa-angles-{{ anglesDirections }} me-2"></i>
+        {{ isLast ? 'back_to_top'|trans : 'know_more'|trans }}
+        <i class="fas fa-angles-{{ anglesDirections }} ms-2"></i>
+    </a>
+</div>

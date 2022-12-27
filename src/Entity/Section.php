@@ -16,7 +16,6 @@ class Section implements \Stringable
     private ?int $id = null;
 
     #[ORM\ManyToOne(inversedBy: 'sections')]
-    #[ORM\JoinColumn(nullable: false)]
     private ?Page $page = null;
 
     /** @var Collection<int, Text> $texts */
