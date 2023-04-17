@@ -4,12 +4,19 @@
 
 {% if section %}
     <section
-            class="page-section bg-{{ bgColor }} w-100 {{ index == 1 ? 'masthead' : '' }} text-{{ textColor }} position-relative"
-            {% if index == 1 %}
-                style="background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{ asset('build/img/bg.gif') }});"
-            {% endif %}
+            class="page-section position-relative bg-{{ bgColor }} w-100 {{ index == 1 ? 'masthead' : '' }} text-{{ textColor }}"
     >
-        <div class="min-vh-100 container p-4 px-lg-5">
+        {% if index == 1 %}
+            <video autoplay muted loop id="myVideo"
+                   style="
+                   position:absolute; height: 100%;  width: 100%; top: 0; left: 0;     object-fit: fill;"
+            >
+                <source
+                        src="{{ asset('build/img/bg.mp4') }}" type="video/mp4"
+                >
+            </video>
+        {% endif %}
+        <div class="min-vh-100 container p-4 px-lg-5 position-relative" style="z-index: 1">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 justify-content-center">
                     {{ include('components/_section_content.html.twig', {section, accentColor}) }}
