@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\SpotRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: SpotRepository::class)]
@@ -48,6 +49,9 @@ class Spot
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $windguruId = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $customContent = null;
 
     public function __construct()
     {
@@ -210,6 +214,18 @@ class Spot
     public function setWindguruId(?int $windguruId): self
     {
         $this->windguruId = $windguruId;
+
+        return $this;
+    }
+
+    public function getCustomContent(): ?string
+    {
+        return $this->customContent;
+    }
+
+    public function setCustomContent(?string $customContent): static
+    {
+        $this->customContent = $customContent;
 
         return $this;
     }
