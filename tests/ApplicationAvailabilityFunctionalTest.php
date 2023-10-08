@@ -40,7 +40,7 @@ class ApplicationAvailabilityFunctionalTest extends WebTestCase
         yield ['/general-rules'];
         yield ['/gallery'];
         yield ['/meteo'];
-//        yield ['/upload-photos'];
+        //        yield ['/upload-photos'];
     }
 
     public function redirectUrlProvider(): \Generator

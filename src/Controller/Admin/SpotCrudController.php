@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class SpotCrudController extends AbstractCrudController
@@ -29,6 +30,7 @@ class SpotCrudController extends AbstractCrudController
         yield TextField::new('more')->hideOnIndex();
         yield TextField::new('security')->hideOnIndex();
         yield TextField::new('subtitle')->hideOnIndex();
+        yield TextEditorField::new('customContent')->hideOnIndex();
         yield IntegerField::new('windguruId');
         yield ImageField::new('picture')->setBasePath('uploads')
             ->setUploadDir('public/uploads')

@@ -32,6 +32,12 @@
                     {{ include('spots/_spot_item.html.twig', {'item': spotItem}) }}
                 {% endfor %}
             </div>
+            {% if spot.customContent %}
+                <hr class="divider"/>
+                <div class="row">
+                    {{ spot.customContent|raw }}
+                </div>
+            {% endif %}
         </div>
     </section>
 {% endblock %}
