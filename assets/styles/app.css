@@ -106,7 +106,8 @@ hr.hr-light {
 }
 
 .ck.ck-editor__main > .ck-editor__editable {
-    background: transparent !important;
+    background: white !important;
+    color: #212529 !important;
 }
 
 .main-section .container {

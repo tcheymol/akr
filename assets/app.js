@@ -1,9 +1,6 @@
 import './stimulus_bootstrap.js';
-import { startStimulusApp } from '@symfony/stimulus-bundle';
 import { ScrollSpy } from 'bootstrap';
 import './styles/app.css';
-
-startStimulusApp();
 
 // Navbar shrink + ScrollSpy
 window.addEventListener('DOMContentLoaded', event => {
