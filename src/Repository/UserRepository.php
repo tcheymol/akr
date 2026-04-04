@@ -13,11 +13,9 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
  * @extends ServiceEntityRepository<User>
  *
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
- * @method User|null findOneBy(array $criteria, array $orderBy = null)
+ * @method User|null findOneBy(array<string, mixed> $criteria, array<string, mixed>|null $orderBy = null)
  * @method User[]    findAll()
- * @method User[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
- *
- * @implements PasswordUpgraderInterface<User>
+ * @method User[]    findBy(array<string, mixed> $criteria, array<string, mixed>|null $orderBy = null, ?int $limit = null, ?int $offset = null)
  */
 class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {

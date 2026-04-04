@@ -40,4 +40,4 @@ jobs:
             -   name: Execute tests via PHPUnit
                 run: vendor/bin/phpunit tests
             -   name: Run PhpStan
-                run: vendor/bin/phpstan analyse
+                run: vendor/bin/phpstan analyse --memory-limit=512M

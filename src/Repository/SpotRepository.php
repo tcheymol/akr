@@ -10,9 +10,9 @@ use Doctrine\Persistence\ManagerRegistry;
  * @extends ServiceEntityRepository<Spot>
  *
  * @method Spot|null find($id, $lockMode = null, $lockVersion = null)
- * @method Spot|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Spot|null findOneBy(array<string, mixed> $criteria, array<string, mixed>|null $orderBy = null)
  * @method Spot[]    findAll()
- * @method Spot[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Spot[]    findBy(array<string, mixed> $criteria, array<string, mixed>|null $orderBy = null, ?int $limit = null, ?int $offset = null)
  */
 class SpotRepository extends ServiceEntityRepository
 {
