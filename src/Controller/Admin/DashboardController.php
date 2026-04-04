@@ -2,26 +2,20 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Image;
-use App\Entity\Page;
-use App\Entity\Section;
-use App\Entity\Spot;
-use App\Entity\Text;
-use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
 
+#[AdminDashboard(routePath: '/admin', routeName: 'admin')]
 class DashboardController extends AbstractDashboardController
 {
     public function __construct(private readonly AdminUrlGenerator $adminUrlGenerator)
     {
     }
 
-    #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
         return $this->redirect($this->adminUrlGenerator->setController(SpotCrudController::class)->generateUrl());
@@ -36,12 +30,12 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToCrud('spots', 'fas fa-umbrella-beach', Spot::class);
-        yield MenuItem::linkToCrud('pages', 'fas fa-scroll', Page::class);
-        yield MenuItem::linkToCrud('sections', 'fas fa-bars', Section::class);
-        yield MenuItem::linkToCrud('texts', 'fas fa-pencil', Text::class);
-        yield MenuItem::linkToCrud('users', 'fas fa-users', User::class);
-        yield MenuItem::linkToCrud('gallery', 'fas fa-image', Image::class);
+        yield MenuItem::linkTo(SpotCrudController::class, 'spots', 'fas fa-umbrella-beach');
+        yield MenuItem::linkTo(PageCrudController::class, 'pages', 'fas fa-scroll');
+        yield MenuItem::linkTo(SectionCrudController::class, 'sections', 'fas fa-bars');
+        yield MenuItem::linkTo(TextCrudController::class, 'texts', 'fas fa-pencil');
+        yield MenuItem::linkTo(UserCrudController::class, 'users', 'fas fa-users');
+        yield MenuItem::linkTo(ImageCrudController::class, 'gallery', 'fas fa-image');
         yield MenuItem::linkToRoute('upload_photos', 'fas fa-image', 'upload_photos');
     }
 }

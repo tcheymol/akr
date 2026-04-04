@@ -1,6 +1,8 @@
 ###> misc ###
 .idea
 .DS_Store
+dump.sql
+*.db
 ###< misc ###
 
 ###> symfony/framework-bundle ###
@@ -9,24 +11,24 @@
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
-/var/
+/var/log
+/var/cache
 /vendor/
 ###< symfony/framework-bundle ###
 ###> symfony/phpunit-bridge ###
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
-
-###> symfony/webpack-encore-bundle ###
-/node_modules/
-/public/build/
-/public/uploads/
-/public/images/
-npm-debug.log
-yarn-error.log
-###< symfony/webpack-encore-bundle ###
-
 ###> friendsofphp/php-cs-fixer ###
 /.php-cs-fixer.php
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
+
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor/
+###< symfony/asset-mapper ###
+
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
