@@ -38,6 +38,6 @@ jobs:
             -   name: Run Php-cs-fixer on tests
                 run: vendor/bin/php-cs-fixer fix tests -v --dry-run --stop-on-violation --using-cache=no
             -   name: Execute tests via PHPUnit
-                run: vendor/bin/simple-phpunit tests
+                run: vendor/bin/phpunit tests
             -   name: Run PhpStan
                 run: vendor/bin/phpstan analyse

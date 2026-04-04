@@ -3,10 +3,8 @@
 <!-- https://phpunit.readthedocs.io/en/latest/configuration.html -->
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-         backupGlobals="false"
          colors="true"
          bootstrap="tests/bootstrap.php"
-         convertDeprecationsToExceptions="false"
 >
     <php>
         <ini name="display_errors" value="1"/>
@@ -14,11 +12,8 @@
         <server name="APP_ENV" value="test" force="true"/>
         <server name="SHELL_VERBOSITY" value="-1"/>
         <server name="KERNEL_CLASS" value="App\Kernel"/>
-        <server name="SYMFONY_PHPUNIT_REMOVE" value=""/>
-        <server name="SYMFONY_PHPUNIT_VERSION" value="9.5"/>
+        <server name="SYMFONY_PHPUNIT_VERSION" value="11"/>
         <!-- ###+ symfony/routing ### -->
-        <!-- Configure how to generate URLs in non-HTTP contexts, such as CLI commands. -->
-        <!-- See https://symfony.com/doc/current/routing.html#generating-urls-in-commands -->
         <env name="DEFAULT_URI" value="http://localhost"/>
         <!-- ###- symfony/routing ### -->
         <!-- ###+ symfony/mailer ### -->
@@ -32,24 +27,13 @@
         </testsuite>
     </testsuites>
 
-    <coverage processUncoveredFiles="true">
+    <source>
         <include>
             <directory suffix=".php">src</directory>
         </include>
-    </coverage>
+    </source>
 
-    <listeners>
-        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener"/>
-    </listeners>
-
-    <!-- Run `composer require symfony/panther` before enabling this extension -->
-    <!--
     <extensions>
-        <bootstrap class="Symfony\Bridge\PhpUnit\SymfonyExtension">
-            <parameter name="clock-mock-namespaces" value="App" />
-            <parameter name="dns-mock-namespaces" value="App" />
-        </bootstrap>
-        <extension class="Symfony\Component\Panther\ServerExtension" />
+        <bootstrap class="Symfony\Bridge\PhpUnit\SymfonyExtension"/>
     </extensions>
-    -->
 </phpunit>
