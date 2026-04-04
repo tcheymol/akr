@@ -26,11 +26,15 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 
 class HomeController extends AbstractController
 {
-    public function header(RequestStack $stack, PageRepository $pageRepository): Response
+    public function __construct(private readonly RequestStack $stack, private readonly PageRepository $pageRepository, private readonly SpotRepository $repository, private readonly SectionRepository $sectionRepository, private readonly TextManager $texts, private readonly ImageRepository $imageRepository, private readonly SluggerInterface $slugger, private readonly EntityManagerInterface $em)
+    {
+    }
+
+    public function header(): Response
     {
         return $this->render('components/_header.html.twig', [
-            'pages' => $pageRepository->findBy([], ['position' => Criteria::ASC]),
-            'mainRequest' => $stack->getMainRequest(),
+            'pages' => $this->pageRepository->findBy([], ['position' => Criteria::ASC]),
+            'mainRequest' => $this->stack->getMainRequest(),
         ]);
     }
 
@@ -41,18 +45,18 @@ class HomeController extends AbstractController
     }
 
     #[Route('/page/{slug}', name: 'page', methods: ['GET'])]
-    public function licences(string $slug, PageRepository $pageRepository): Response
+    public function licences(string $slug): Response
     {
-        return $this->render('page/show.html.twig', ['page' => $pageRepository->findOneBySlug($slug)]);
+        return $this->render('page/show.html.twig', ['page' => $this->pageRepository->findOneBySlug($slug)]);
     }
 
     #[Route('/spots', name: 'spots', methods: ['GET'])]
-    public function spots(SpotRepository $repository, SectionRepository $sectionRepository, TextManager $texts): Response
+    public function spots(): Response
     {
         return $this->render('spots/index.html.twig', [
-            'spotsIntro' => $texts->getByKey('spots_intro'),
-            'spotsRecommendationsSection' => $sectionRepository->findOneBy(['name' => "Recommandations générales à l'ensemble des spots de l'île"]),
-            'spots' => $repository->findAll(),
+            'spotsIntro' => $this->texts->getByKey('spots_intro'),
+            'spotsRecommendationsSection' => $this->sectionRepository->findOneBy(['name' => "Recommandations générales à l'ensemble des spots de l'île"]),
+            'spots' => $this->repository->findAll(),
         ]);
     }
 
@@ -63,34 +67,34 @@ class HomeController extends AbstractController
     }
 
     #[Route('/general-rules', name: 'general_rules', methods: ['GET'])]
-    public function generalRules(TextManager $texts): Response
+    public function generalRules(): Response
     {
         return $this->render('general_rules/index.html.twig', [
-            'importantNotices' => $texts->getByKey('important_notices'),
-            'generalFrameContent' => $texts->getByKey('general_frame'),
+            'importantNotices' => $this->texts->getByKey('important_notices'),
+            'generalFrameContent' => $this->texts->getByKey('general_frame'),
         ]);
     }
 
     #[Route('/gallery', name: 'gallery', methods: ['GET'])]
-    public function gallery(ImageRepository $imageRepository): Response
+    public function gallery(): Response
     {
-        return $this->render('gallery/index.html.twig', ['images' => $imageRepository->findAll()]);
+        return $this->render('gallery/index.html.twig', ['images' => $this->imageRepository->findAll()]);
     }
 
     #[Route('/meteo', name: 'meteo', methods: ['GET'])]
-    public function meteo(TextManager $texts, SectionRepository $sectionRepository): Response
+    public function meteo(): Response
     {
         return $this->render('meteo/index.html.twig', [
-            'intro1' => $texts->getByKey('meteo_intro_1'),
-            'intro2' => $texts->getByKey('meteo_intro_2'),
-            'section' => $sectionRepository->findOneBy(['name' => "Les vents d'Alizée"]),
-            'section2' => $sectionRepository->findOneBy(['name' => 'Quel QUIVER pour la Réunion  ?']),
+            'intro1' => $this->texts->getByKey('meteo_intro_1'),
+            'intro2' => $this->texts->getByKey('meteo_intro_2'),
+            'section' => $this->sectionRepository->findOneBy(['name' => "Les vents d'Alizée"]),
+            'section2' => $this->sectionRepository->findOneBy(['name' => 'Quel QUIVER pour la Réunion  ?']),
         ]);
     }
 
     #[IsGranted('ROLE_ADMIN')]
     #[Route('/upload-photos', name: 'upload_photos', methods: ['GET', 'POST'])]
-    public function uploadPhotos(Request $request, SluggerInterface $slugger, EntityManagerInterface $em): Response
+    public function uploadPhotos(Request $request): Response
     {
         if (Request::METHOD_GET === $request->getMethod()) {
             return $this->render('admin/upload_photos.html.twig');
@@ -99,7 +103,7 @@ class HomeController extends AbstractController
         /** @var UploadedFile $file */
         foreach ($request->files as $file) {
             $originalFilename = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
-            $newFilename = $slugger->slug($originalFilename).'-'.uniqid().'.'.$file->guessExtension();
+            $newFilename = $this->slugger->slug($originalFilename).'-'.uniqid().'.'.$file->guessExtension();
             try {
                 $info = getimagesize($file);
                 $image = (new Image())
@@ -109,8 +113,8 @@ class HomeController extends AbstractController
                     [$x, $y] = $info;
                     $image->setHeight($y)->setWidth($x);
                 }
-                $em->persist($image);
-                $em->flush();
+                $this->em->persist($image);
+                $this->em->flush();
                 $file->move('images', $newFilename);
             } catch (\Exception $e) {
                 dd($e);
@@ -122,14 +126,14 @@ class HomeController extends AbstractController
 
     #[IsGranted('ROLE_ADMIN')]
     #[Route('/text/{id}', name: 'update_text', methods: ['GET', 'POST'])]
-    public function updateText(Request $request, Text $text, EntityManagerInterface $em): Response
+    public function updateText(Request $request, Text $text): Response
     {
         $form = $this->createForm(TextType::class, $text, [
             'action' => $this->generateUrl('update_text', ['id' => $text->getId()]),
         ])->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em->flush();
+            $this->em->flush();
 
             return $this->render('components/_text_content.html.twig', ['text' => $text]);
         }
@@ -139,11 +143,11 @@ class HomeController extends AbstractController
 
     #[IsGranted('ROLE_ADMIN')]
     #[Route('/image/{id}/remove', name: 'remove_image', methods: ['GET'])]
-    public function removeImage(Image $image, EntityManagerInterface $em, string $publicDir): RedirectResponse
+    public function removeImage(Image $image, string $publicDir): RedirectResponse
     {
         unlink(sprintf('%s/%s', $publicDir, $image->getUrl()));
-        $em->remove($image);
-        $em->flush();
+        $this->em->remove($image);
+        $this->em->flush();
 
         return $this->redirectToRoute('gallery');
     }
