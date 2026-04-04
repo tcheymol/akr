@@ -1,45 +1,28 @@
-/*
- * Welcome to your app's main JavaScript file!
- *
- * We recommend including the built version of this JavaScript file
- * (and its CSS file) in your base layout (base.html.twig).
- */
+import './stimulus_bootstrap.js';
+import { startStimulusApp } from '@symfony/stimulus-bundle';
+import { ScrollSpy } from 'bootstrap';
+import './styles/app.css';
 
-import {ScrollSpy} from 'bootstrap';
+startStimulusApp();
 
-// start the Stimulus application
-import './bootstrap';
-
-// any CSS you import will output into a single css file (app.css in this case)
-import './styles/styles.scss';
-
-
-import '@fortawesome/fontawesome-free';
-
-// Smooth scroll
+// Navbar shrink + ScrollSpy
 window.addEventListener('DOMContentLoaded', event => {
 
-    // Navbar shrink function
     const navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
         if (!navbarCollapsible) {
             return;
         }
         if (window.scrollY === 0) {
-            navbarCollapsible.classList.remove('navbar-shrink')
+            navbarCollapsible.classList.remove('navbar-shrink');
         } else {
-            navbarCollapsible.classList.add('navbar-shrink')
+            navbarCollapsible.classList.add('navbar-shrink');
         }
-
     };
 
-    // Shrink the navbar
     navbarShrink();
-
-    // Shrink the navbar when page is scrolled
     document.addEventListener('scroll', navbarShrink);
 
-    // Activate Bootstrap scrollspy on the main nav element
     const mainNav = document.body.querySelector('#mainNav');
     if (mainNav) {
         new ScrollSpy(document.body, {
@@ -56,7 +39,6 @@ window.addEventListener('DOMContentLoaded', event => {
     responsiveNavItems.map(function (responsiveNavItem) {
         responsiveNavItem.addEventListener('click', () => {
             if (window.getComputedStyle(navbarToggler).display !== 'none') {
-                // @ts-ignore
                 navbarToggler.click();
             }
         });

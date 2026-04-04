@@ -2,11 +2,12 @@
 
 namespace App\Tests;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ApplicationAvailabilityFunctionalTest extends WebTestCase
 {
-    /** @dataProvider redirectUrlProvider */
+    #[DataProvider('redirectUrlProvider')]
     public function testPageRedirects(string $url): void
     {
         $client = self::createClient();
@@ -15,7 +16,7 @@ class ApplicationAvailabilityFunctionalTest extends WebTestCase
         $this->assertResponseRedirects();
     }
 
-    /** @dataProvider successfulUrlProvider */
+    #[DataProvider('successfulUrlProvider')]
     public function testPageIsSuccessful(string $url): void
     {
         $client = self::createClient();
@@ -24,7 +25,7 @@ class ApplicationAvailabilityFunctionalTest extends WebTestCase
         $this->assertResponseIsSuccessful();
     }
 
-    /** @dataProvider notFoundUrlProvider */
+    #[DataProvider('notFoundUrlProvider')]
     public function testPageIsNotFound(string $url): void
     {
         $client = self::createClient();
@@ -33,7 +34,7 @@ class ApplicationAvailabilityFunctionalTest extends WebTestCase
         $this->assertResponseStatusCodeSame(404);
     }
 
-    public function successfulUrlProvider(): \Generator
+    public static function successfulUrlProvider(): \Generator
     {
         yield ['/login'];
         yield ['/spots'];
@@ -43,13 +44,13 @@ class ApplicationAvailabilityFunctionalTest extends WebTestCase
         //        yield ['/upload-photos'];
     }
 
-    public function redirectUrlProvider(): \Generator
+    public static function redirectUrlProvider(): \Generator
     {
         yield ['/'];
         yield ['/logout'];
     }
 
-    public function notFoundUrlProvider(): \Generator
+    public static function notFoundUrlProvider(): \Generator
     {
         yield ['/spots/0'];
         yield ['/text/0'];

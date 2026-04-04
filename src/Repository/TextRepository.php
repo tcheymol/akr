@@ -10,9 +10,9 @@ use Doctrine\Persistence\ManagerRegistry;
  * @extends ServiceEntityRepository<Text>
  *
  * @method Text|null find($id, $lockMode = null, $lockVersion = null)
- * @method Text|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Text|null findOneBy(array<string, mixed> $criteria, array<string, mixed>|null $orderBy = null)
  * @method Text[]    findAll()
- * @method Text[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Text[]    findBy(array<string, mixed> $criteria, array<string, mixed>|null $orderBy = null, ?int $limit = null, ?int $offset = null)
  */
 class TextRepository extends ServiceEntityRepository
 {

@@ -10,9 +10,9 @@ use Doctrine\Persistence\ManagerRegistry;
  * @extends ServiceEntityRepository<Section>
  *
  * @method Section|null find($id, $lockMode = null, $lockVersion = null)
- * @method Section|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Section|null findOneBy(array<string, mixed> $criteria, array<string, mixed>|null $orderBy = null)
  * @method Section[]    findAll()
- * @method Section[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Section[]    findBy(array<string, mixed> $criteria, array<string, mixed>|null $orderBy = null, ?int $limit = null, ?int $offset = null)
  */
 class SectionRepository extends ServiceEntityRepository
 {

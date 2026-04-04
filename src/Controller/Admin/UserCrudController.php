@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
+/** @extends AbstractCrudController<\App\Entity\User> */
 class UserCrudController extends AbstractCrudController
 {
     public function __construct(private readonly UserPasswordHasherInterface $hasher)
